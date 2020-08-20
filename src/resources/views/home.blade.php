@@ -1,13 +1,22 @@
 @extends('layouts.app')
 
-@section('title')
-    Home
-@endsection
-
 @section('content')
 
-    <div class="col-sm-10 mx-auto">
-        <h1 class="display-3"> Новые товары </h1>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+
+                    <div class="card-header">
+                        <h1> Новые товары </h1>
+                    </div>
+
+                    <div class="card-body">
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
 
 @endsection
