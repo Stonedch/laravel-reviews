@@ -13,6 +13,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('home') }}"> Главная </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('products-all') }}"> Продукты </a>
+                </li>
             </ul>
 
             <!-- Right Side Of Navbar -->
