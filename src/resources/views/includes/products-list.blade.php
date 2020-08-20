@@ -4,7 +4,7 @@
             <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <div class="col p-4 d-flex flex-column position-static">
                     <h3 class="mb-0"> {{ $product->name }} </h3>
-                    <div class="mb-1 text-muted"> {{ $product->price }}р. </div>
+                    <div class="mb-1 text-muted"> {{ number_format($product->price) }}р. </div>
                     <p class="card-text mb-auto"> {{ $product->description }} </p>
                     <a href="{{ route('products-detail', $product->slug) }}" class="stretched-link"> Подробнее </a>
                 </div>
