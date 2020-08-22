@@ -32,5 +32,12 @@ Route::get('/admin/products/{id}/update', 'Admin\ProductsController@update')->na
 Route::post('/admin/products/{id}/update', 'Admin\ProductsController@updateSubmit')->name('admin-product-update-submit');
 Route::get('/admin/products/{id}/delete', 'Admin\ProductsController@delete')->name('admin-product-delete');
 
-Auth::routes();
+Route::get('/admin/statuses', 'Admin\StatusesController@getAll')->name('admin-statuse-all');
+Route::get('/admin/statuses/create', 'Admin\StatusesController@create')->name('admin-statuse-create');
+Route::post('/admin/statuses/create', 'Admin\StatusesController@createSubmit')->name('admin-statuse-create-submit');
+Route::get('/admin/statuses/{id}', 'Admin\StatusesController@getDetail')->name('admin-statuse-detail');
+Route::get('/admin/statuses/{id}/update', 'Admin\StatusesController@update')->name('admin-statuse-update');
+Route::post('/admin/statuses/{id}/update', 'Admin\StatusesController@updateSubmit')->name('admin-statuse-update-submit');
+Route::get('/admin/statuses/{id}/delete', 'Admin\StatusesController@delete')->name('admin-statuse-delete');
 
+Auth::routes();
