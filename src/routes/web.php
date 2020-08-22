@@ -40,4 +40,12 @@ Route::get('/admin/statuses/{id}/update', 'Admin\StatusesController@update')->na
 Route::post('/admin/statuses/{id}/update', 'Admin\StatusesController@updateSubmit')->name('admin-statuse-update-submit');
 Route::get('/admin/statuses/{id}/delete', 'Admin\StatusesController@delete')->name('admin-statuse-delete');
 
+Route::get('/admin/reviews', 'Admin\ReviewsController@getAll')->name('admin-review-all');
+Route::get('/admin/reviews/create', 'Admin\ReviewsController@create')->name('admin-review-create');
+Route::post('/admin/reviews/create', 'Admin\ReviewsController@createSubmit')->name('admin-review-create-submit');
+Route::get('/admin/reviews/{id}', 'Admin\ReviewsController@getDetail')->name('admin-review-detail');
+Route::get('/admin/reviews/{id}/update', 'Admin\ReviewsController@update')->name('admin-review-update');
+Route::post('/admin/reviews/{id}/update', 'Admin\ReviewsController@updateSubmit')->name('admin-review-update-submit');
+Route::get('/admin/reviews/{id}/delete', 'Admin\ReviewsController@delete')->name('admin-review-delete');
+
 Auth::routes();
