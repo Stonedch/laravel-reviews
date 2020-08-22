@@ -15,7 +15,7 @@
 
                         <div class="list-group">
                             <a href="{{ route('admin-user-all') }}" class="list-group-item list-group-item-action"> Users</a>
-                            <a href="#" class="list-group-item list-group-item-action"> Products </a>
+                            <a href="{{ route('admin-product-all') }}" class="list-group-item list-group-item-action"> Products </a>
                             <a href="#" class="list-group-item list-group-item-action"> Statuses </a>
                             <a href="#" class="list-group-item list-group-item-action"> Reviews </a>
                         </div>
