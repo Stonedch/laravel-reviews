@@ -12,6 +12,8 @@ Route::get('/products', 'ProductsController@getAll')->name('products-all');
 
 Route::get('/products/{id}', 'ProductsController@getDetail')->name('products-detail');
 
+Route::post('/review/create', 'ReviewsController@createSubmit')->name('review-create');
+
 Route::get('/admin/', 'Admin\AdminController@panel')->name('admin-panel');
 
 Route::get('/admin/users', 'Admin\UsersController@getAll')->name('admin-user-all');

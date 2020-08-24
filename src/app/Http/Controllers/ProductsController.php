@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Products;
+use App\Models\Statuses;
+use App\Models\Users;
+use App\Models\Reviews;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller {
@@ -16,7 +19,14 @@ class ProductsController extends Controller {
 
     public function getDetail($slug) {
         $product = Products::where('slug', '=', $slug)->firstOrFail();
-        $context = ['product' => $product];
+        $reviews = Reviews::where('products_id_foreign', '=', $product->id)->get();
+        $status = Statuses::where('slug', '=', 'new')->get();
+
+        $context = [
+            'product' => $product,
+            'reviews' => $reviews,
+            'status' => $status,
+        ];
 
         return view('products/detail', $context);
     }

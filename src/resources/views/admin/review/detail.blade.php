@@ -24,11 +24,13 @@
                                     <span class="badge badge-primary badge-pill"> products_id_foreign </span>
                                 </li>
                             </a>
-                            <a href="{{ route('admin-user-detail', $review->users_id_foreign) }}">
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                {{ $review->users_id_foreign ?: 'Null' }}
-                                <span class="badge badge-primary badge-pill"> users_id_foreign </span>
-                            </li>
+                            @if ($review->users_id_foreign)
+                                <a href="{{ route('admin-user-detail', $review->users_id_foreign) }}">
+                            @endif
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    {{ $review->users_id_foreign ?: 'Anonim' }}
+                                    <span class="badge badge-primary badge-pill"> users_id_foreign </span>
+                                </li>
                             </a>
                             <a href="{{ route('admin-statuse-detail', $review->statuses_id_foreign) }}">
                             <li class="list-group-item d-flex justify-content-between align-items-center">
