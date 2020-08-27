@@ -28,15 +28,15 @@
                                         <th scope="row"> {{ $review->id }} </th>
                                         <td> {{ $review->name }} </td>
                                         <td> {{ $review->score }} </td>
-                                        <td> <a href="{{ route('admin-review-detail', $review->id) }}"> Подробнее </a> </td>
+                                        <td> <a href="{{ route('admin.reviews.detail', $review->id) }}"> Подробнее </a> </td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
 
                         <div class="btn-group mt-1" role="group" aria-label="Basic example">
-                            <a class="btn btn-primary" href="{{ route('admin-panel') }}"> Вернуться </a>
-                            <a class="btn btn-success" href="{{ route('admin-review-create') }}"> Создать </a>
+                            <a class="btn btn-primary" href="{{ route('admin.index') }}"> Вернуться </a>
+                            <a class="btn btn-success" href="{{ route('admin.reviews.create') }}"> Создать </a>
                         </div>
 
                     </div>

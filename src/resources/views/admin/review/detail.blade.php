@@ -18,21 +18,21 @@
                                 {{ $review->id ?: 'Null' }}
                                 <span class="badge badge-primary badge-pill"> id </span>
                             </li>
-                            <a href="{{ route('admin-product-detail', $review->products_id_foreign) }}">
+                            <a href="{{ route('admin.products.detail', $review->products_id_foreign) }}">
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
                                     {{ $review->products_id_foreign ?: 'Null' }}
                                     <span class="badge badge-primary badge-pill"> products_id_foreign </span>
                                 </li>
                             </a>
                             @if ($review->users_id_foreign)
-                                <a href="{{ route('admin-user-detail', $review->users_id_foreign) }}">
+                                <a href="{{ route('admin.users.detail', $review->users_id_foreign) }}">
                             @endif
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
                                     {{ $review->users_id_foreign ?: 'Anonim' }}
                                     <span class="badge badge-primary badge-pill"> users_id_foreign </span>
                                 </li>
                             </a>
-                            <a href="{{ route('admin-statuse-detail', $review->statuses_id_foreign) }}">
+                            <a href="{{ route('admin.statuses.detail', $review->statuses_id_foreign) }}">
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 {{ $review->statuses_id_foreign ?: 'Null' }}
                                 <span class="badge badge-primary badge-pill"> statuses_id_foreign </span>
@@ -61,9 +61,9 @@
                         </ul>
 
                         <div class="btn-group mt-1" role="group" aria-label="Basic example">
-                            <a class="btn btn-primary" href="{{ route('admin-review-all') }}"> Вернуться </a>
-                            <a class="btn btn-success" href="{{ route('admin-review-update', $review->id) }}"> Обновить </a>
-                            <a class="btn btn-danger" href="{{ route('admin-review-delete', $review->id) }}"> Удалить </a>
+                            <a class="btn btn-primary" href="{{ route('admin.reviews.index') }}"> Вернуться </a>
+                            <a class="btn btn-success" href="{{ route('admin.reviews.update', $review->id) }}"> Обновить </a>
+                            <a class="btn btn-danger" href="{{ route('admin.reviews.delete', $review->id) }}"> Удалить </a>
                         </div>
 
                     </div>

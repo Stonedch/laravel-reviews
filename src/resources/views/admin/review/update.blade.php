@@ -13,7 +13,7 @@
 
                     <div class="card-body">
 
-                        <form action="{{ route('admin-review-update-submit', $review->id) }}" method="post">
+                        <form action="{{ route('admin.reviews.update', $review->id) }}" method="post">
                             @csrf
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
@@ -79,7 +79,7 @@
                                 <textarea class="form-control" name="negative" cols="30" rows="3"> {{ $review->negative }} </textarea>
                             </div>
                             <div class="btn-group mt-1" role="group" aria-label="Basic example">
-                                <a class="btn btn-primary" href="{{ route('admin-review-detail', $review->id) }}"> Вернуться </a>
+                                <a class="btn btn-primary" href="{{ route('admin.reviews.detail', $review->id) }}"> Вернуться </a>
                                 <button class="btn btn-success" type="submit"> Обновить </button>
                             </div>
                         </form>

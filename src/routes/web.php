@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+Auth::routes();
+
 Route::get('/', function () {
     return redirect()->route('home');
 });
@@ -50,14 +52,15 @@ Route::group(['prefix' => '/admin', 'as' => 'admin.'], function() {
         Route::get('/{id}/delete', 'Admin\StatusesController@delete')->name('delete');
     });
 
+    Route::group(['prefix' => '/reviews', 'as' => 'reviews.'], function() {
+        Route::get('/', 'Admin\ReviewsController@getAll')->name('index');
+        Route::get('/create', 'Admin\ReviewsController@create')->name('create');
+        Route::post('/create', 'Admin\ReviewsController@createSubmit')->name('create');
+        Route::get('/{id}', 'Admin\ReviewsController@getDetail')->name('detail');
+        Route::get('/{id}/update', 'Admin\ReviewsController@update')->name('update');
+        Route::post('/{id}/update', 'Admin\ReviewsController@updateSubmit')->name('update');
+        Route::get('/{id}/delete', 'Admin\ReviewsController@delete')->name('delete');
+    });
+
 });
 
-Route::get('/admin/reviews', 'Admin\ReviewsController@getAll')->name('admin-review-all');
-Route::get('/admin/reviews/create', 'Admin\ReviewsController@create')->name('admin-review-create');
-Route::post('/admin/reviews/create', 'Admin\ReviewsController@createSubmit')->name('admin-review-create-submit');
-Route::get('/admin/reviews/{id}', 'Admin\ReviewsController@getDetail')->name('admin-review-detail');
-Route::get('/admin/reviews/{id}/update', 'Admin\ReviewsController@update')->name('admin-review-update');
-Route::post('/admin/reviews/{id}/update', 'Admin\ReviewsController@updateSubmit')->name('admin-review-update-submit');
-Route::get('/admin/reviews/{id}/delete', 'Admin\ReviewsController@delete')->name('admin-review-delete');
-
-Auth::routes();

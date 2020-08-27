@@ -49,7 +49,7 @@ class ReviewsController extends Controller {
 
         $review->save();
 
-        return redirect()->route('admin-review-detail', $review->id)->with('success', 'Отзыв был добавлен.');
+        return redirect()->route('admin.reviews.detail', $review->id)->with('success', 'Отзыв был добавлен.');
     }
 
     public function update($id) {
@@ -77,14 +77,14 @@ class ReviewsController extends Controller {
 
         $review->update();
 
-        return redirect()->route('admin-review-detail', $review->id)->with('success', 'Отзыв был обновлен.');
+        return redirect()->route('admin.reviews.detail', $review->id)->with('success', 'Отзыв был обновлен.');
     }
 
     public function delete($id) {
         $review = Reviews::find($id);
         $review->delete();
 
-        return redirect()->route('admin-review-all')->with('success', 'Отзыв был удален.');
+        return redirect()->route('admin.reviews.index')->with('success', 'Отзыв был удален.');
     }
 
 }
