@@ -13,7 +13,7 @@
 
                     <div class="card-body">
 
-                        <form action="{{ route('admin-user-update-submit', $user->id) }}" method="post">
+                        <form action="{{ route('admin.users.update', $user->id) }}" method="post">
                             @csrf
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
@@ -28,7 +28,7 @@
                                 <input type="email" name="email" class="form-control" value="{{ $user->email }}">
                             </div>
                             <div class="btn-group mt-1" role="group" aria-label="Basic example">
-                                <a class="btn btn-primary" href="{{ route('admin-user-detail', $user->id) }}"> Вернуться </a>
+                                <a class="btn btn-primary" href="{{ route('admin.users.update', $user->id) }}"> Вернуться </a>
                                 <button class="btn btn-success" type="submit"> Обновить </button>
                             </div>
                         </form>

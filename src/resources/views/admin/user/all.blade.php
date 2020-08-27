@@ -30,15 +30,15 @@
                                         <td> {{ $user->name }} </td>
                                         <td> {{ $user->email }} </td>
                                         <td> {{ $user->created_at }} </td>
-                                        <td> <a href="{{ route('admin-user-detail', $user->id) }}"> Подробнее </a> </td>
+                                        <td> <a href="{{ route('admin.users.detail', $user->id) }}"> Подробнее </a> </td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
 
                         <div class="btn-group mt-1" role="group" aria-label="Basic example">
-                            <a class="btn btn-primary" href="{{ route('admin-panel') }}"> Вернуться </a>
-                            <a class="btn btn-success" href="{{ route('admin-user-create') }}"> Создать </a>
+                            <a class="btn btn-primary" href="{{ route('admin.index') }}"> Вернуться </a>
+                            <a class="btn btn-success" href="{{ route('admin.users.create') }}"> Создать </a>
                         </div>
 
                     </div>

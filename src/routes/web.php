@@ -14,17 +14,20 @@ Route::get('/products/{id}', 'ProductsController@getDetail')->name('products-det
 
 Route::post('/review/create', 'ReviewsController@createSubmit')->name('review-create');
 
-Route::get('/admin/', 'Admin\AdminController@panel')->name('admin-panel');
-
-Route::get('/admin/users', 'Admin\UsersController@getAll')->name('admin-user-all');
-Route::get('/admin/users/create', 'Admin\UsersController@create')->name('admin-user-create');
-Route::post('/admin/users/create', 'Admin\UsersController@createSubmit')->name('admin-user-create-submit');
-Route::get('/admin/users/{id}', 'Admin\UsersController@getDetail')->name('admin-user-detail');
-Route::get('/admin/users/{id}/update', 'Admin\UsersController@update')->name('admin-user-update');
-Route::post('/admin/users/{id}/update', 'Admin\UsersController@updateSubmit')->name('admin-user-update-submit');
-Route::get('/admin/users/{id}/update-password', 'Admin\UsersController@updatePassword')->name('admin-user-update-password');
-Route::post('/admin/users/{id}/update-password', 'Admin\UsersController@updatePasswordSubmit')->name('admin-user-update-password-submit');
-Route::get('/admin/users/{id}/delete', 'Admin\UsersController@delete')->name('admin-user-delete');
+Route::group(['prefix' => '/admin', 'as' => 'admin.'], function() {
+    Route::get('/', 'Admin\AdminController@panel')->name('index');
+    Route::group(['prefix' => '/users', 'as' => 'users.'], function() {
+        Route::get('/', 'Admin\UsersController@getAll')->name('index');
+        Route::get('/create', 'Admin\UsersController@create')->name('create');
+        Route::post('/create', 'Admin\UsersController@createSubmit')->name('create');
+        Route::get('/{id}', 'Admin\UsersController@getDetail')->name('detail');
+        Route::get('/{id}/update', 'Admin\UsersController@update')->name('update');
+        Route::post('/{id}/update', 'Admin\UsersController@updateSubmit')->name('update');
+        Route::get('/{id}/update-password', 'Admin\UsersController@updatePassword')->name('update.password');
+        Route::post('/{id}/update-password', 'Admin\UsersController@updatePasswordSubmit')->name('update.password');
+        Route::get('/{id}/delete', 'Admin\UsersController@delete')->name('delete');
+    });
+});
 
 Route::get('/admin/products', 'Admin\ProductsController@getAll')->name('admin-product-all');
 Route::get('/admin/products/create', 'Admin\ProductsController@create')->name('admin-product-create');

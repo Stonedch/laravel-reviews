@@ -49,10 +49,10 @@
                         </ul>
 
                         <div class="btn-group mt-1" role="group" aria-label="Basic example">
-                            <a class="btn btn-primary" href="{{ route('admin-user-all') }}"> Вернуться </a>
-                            <a class="btn btn-success" href="{{ route('admin-user-update', $user->id) }}"> Обновить </a>
-                            <a class="btn btn-success" href="{{ route('admin-user-update-password', $user->id) }}"> Обновить пароль </a>
-                            <a class="btn btn-danger" href="{{ route('admin-user-delete', $user->id) }}"> Удалить </a>
+                            <a class="btn btn-primary" href="{{ route('admin.users.index') }}"> Вернуться </a>
+                            <a class="btn btn-success" href="{{ route('admin.users.update', $user->id) }}"> Обновить </a>
+                            <a class="btn btn-success" href="{{ route('admin.users.update.password', $user->id) }}"> Обновить пароль </a>
+                            <a class="btn btn-danger" href="{{ route('admin.users.delete', $user->id) }}"> Удалить </a>
                         </div>
 
                     </div>

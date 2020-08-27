@@ -30,7 +30,7 @@ class UsersController extends Controller {
         $user = Users::find($id);
         $user->delete();
 
-        return redirect()->route('admin-user-all')->with('success', 'Пользователь был удален.');
+        return redirect()->route('admin.users.index')->with('success', 'Пользователь был удален.');
     }
 
     public function create() {
@@ -46,7 +46,7 @@ class UsersController extends Controller {
 
         $user->save();
 
-        return redirect()->route('admin-user-detail', $user->id)->with('success', 'Пользователь был добавлен.');
+        return redirect()->route('admin.users.detail', $user->id)->with('success', 'Пользователь был добавлен.');
     }
 
     public function update($id) {
@@ -64,7 +64,7 @@ class UsersController extends Controller {
 
         $user->update();
 
-        return redirect()->route('admin-user-detail', $user->id)->with('success', 'Пользователь был обновлен.');
+        return redirect()->route('admin.users.detail', $user->id)->with('success', 'Пользователь был обновлен.');
     }
 
     public function updatePassword($id) {
@@ -81,7 +81,7 @@ class UsersController extends Controller {
 
         $user->update();
 
-        return redirect()->route('admin-user-detail', $user->id)->with('success', 'Пользователь был обновлен.');
+        return redirect()->route('admin.users.detail', $user->id)->with('success', 'Пользователь был обновлен.');
     }
 
 }
