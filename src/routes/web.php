@@ -15,7 +15,9 @@ Route::get('/products/{id}', 'ProductsController@getDetail')->name('products-det
 Route::post('/review/create', 'ReviewsController@createSubmit')->name('review-create');
 
 Route::group(['prefix' => '/admin', 'as' => 'admin.'], function() {
+
     Route::get('/', 'Admin\AdminController@panel')->name('index');
+
     Route::group(['prefix' => '/users', 'as' => 'users.'], function() {
         Route::get('/', 'Admin\UsersController@getAll')->name('index');
         Route::get('/create', 'Admin\UsersController@create')->name('create');
@@ -27,15 +29,18 @@ Route::group(['prefix' => '/admin', 'as' => 'admin.'], function() {
         Route::post('/{id}/update-password', 'Admin\UsersController@updatePasswordSubmit')->name('update.password');
         Route::get('/{id}/delete', 'Admin\UsersController@delete')->name('delete');
     });
-});
 
-Route::get('/admin/products', 'Admin\ProductsController@getAll')->name('admin-product-all');
-Route::get('/admin/products/create', 'Admin\ProductsController@create')->name('admin-product-create');
-Route::post('/admin/products/create', 'Admin\ProductsController@createSubmit')->name('admin-product-create-submit');
-Route::get('/admin/products/{id}', 'Admin\ProductsController@getDetail')->name('admin-product-detail');
-Route::get('/admin/products/{id}/update', 'Admin\ProductsController@update')->name('admin-product-update');
-Route::post('/admin/products/{id}/update', 'Admin\ProductsController@updateSubmit')->name('admin-product-update-submit');
-Route::get('/admin/products/{id}/delete', 'Admin\ProductsController@delete')->name('admin-product-delete');
+    Route::group(['prefix' => '/products', 'as' => 'products.'], function() {
+        Route::get('/', 'Admin\ProductsController@getAll')->name('index');
+        Route::get('/create', 'Admin\ProductsController@create')->name('create');
+        Route::post('/create', 'Admin\ProductsController@createSubmit')->name('create');
+        Route::get('/{id}', 'Admin\ProductsController@getDetail')->name('detail');
+        Route::get('/{id}/update', 'Admin\ProductsController@update')->name('update');
+        Route::post('/{id}/update', 'Admin\ProductsController@updateSubmit')->name('update');
+        Route::get('/{id}/delete', 'Admin\ProductsController@delete')->name('delete');
+    });
+
+});
 
 Route::get('/admin/statuses', 'Admin\StatusesController@getAll')->name('admin-statuse-all');
 Route::get('/admin/statuses/create', 'Admin\StatusesController@create')->name('admin-statuse-create');

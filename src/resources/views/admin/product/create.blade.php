@@ -13,7 +13,7 @@
 
                     <div class="card-body">
 
-                        <form action="{{ route('admin-product-create-submit') }}" method="post">
+                        <form action="{{ route('admin.products.create') }}" method="post">
                             @csrf
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
@@ -46,7 +46,7 @@
                                 <input type="number" step="any" name="price" class="form-control">
                             </div>
                             <div class="btn-group mt-1" role="group" aria-label="Basic example">
-                                <a class="btn btn-primary" href="{{ route('admin-product-all') }}"> Вернуться </a>
+                                <a class="btn btn-primary" href="{{ route('admin.products.index') }}"> Вернуться </a>
                                 <button class="btn btn-success" type="submit"> Создать </button>
                             </div>
                         </form>

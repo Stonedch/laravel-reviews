@@ -41,9 +41,9 @@
                         </ul>
 
                         <div class="btn-group mt-1" role="group" aria-label="Basic example">
-                            <a class="btn btn-primary" href="{{ route('admin-product-all') }}"> Вернуться </a>
-                            <a class="btn btn-success" href="{{ route('admin-product-update', $product->id) }}"> Обновить </a>
-                            <a class="btn btn-danger" href="{{ route('admin-product-delete', $product->id) }}"> Удалить </a>
+                            <a class="btn btn-primary" href="{{ route('admin.products.index') }}"> Вернуться </a>
+                            <a class="btn btn-success" href="{{ route('admin.products.update', $product->id) }}"> Обновить </a>
+                            <a class="btn btn-danger" href="{{ route('admin.products.delete', $product->id) }}"> Удалить </a>
                         </div>
 
                     </div>

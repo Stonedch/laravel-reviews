@@ -28,7 +28,7 @@
                                         <th scope="row"> {{ $product->id }} </th>
                                         <td> {{ $product->name }} </td>
                                         <td> {{ $product->slug }} </td>
-                                        <td> <a href="{{ route('admin-product-detail', $product->id) }}"> Подробнее </a> </td>
+                                        <td> <a href="{{ route('admin.products.detail', $product->id) }}"> Подробнее </a> </td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -36,7 +36,7 @@
 
                         <div class="btn-group mt-1" role="group" aria-label="Basic example">
                             <a class="btn btn-primary" href="{{ route('admin.index') }}"> Вернуться </a>
-                            <a class="btn btn-success" href="{{ route('admin-product-create') }}"> Создать </a>
+                            <a class="btn btn-success" href="{{ route('admin.products.create') }}"> Создать </a>
                         </div>
 
                     </div>

@@ -38,7 +38,7 @@ class ProductsController extends Controller {
 
         $product->save();
 
-        return redirect()->route('admin-product-detail', $product->id)->with('success', 'Продукт был добавлен.');
+        return redirect()->route('admin.products.detail', $product->id)->with('success', 'Продукт был добавлен.');
     }
 
     public function update($id) {
@@ -59,14 +59,14 @@ class ProductsController extends Controller {
 
         $product->update();
 
-        return redirect()->route('admin-product-detail', $product->id)->with('success', 'Продукт был обновлен.');
+        return redirect()->route('admin.products.detail', $product->id)->with('success', 'Продукт был обновлен.');
     }
 
     public function delete($id) {
         $product = Products::find($id);
         $product->delete();
 
-        return redirect()->route('admin-product-all')->with('success', 'Продукт был удален.');
+        return redirect()->route('admin.products.index')->with('success', 'Продукт был удален.');
     }
 
 }
