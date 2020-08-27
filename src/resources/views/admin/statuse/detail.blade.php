@@ -37,9 +37,9 @@
                         </ul>
 
                         <div class="btn-group mt-1" role="group" aria-label="Basic example">
-                            <a class="btn btn-primary" href="{{ route('admin-statuse-all') }}"> Вернуться </a>
-                            <a class="btn btn-success" href="{{ route('admin-statuse-update', $statuse->id) }}"> Обновить </a>
-                            <a class="btn btn-danger" href="{{ route('admin-statuse-delete', $statuse->id) }}"> Удалить </a>
+                            <a class="btn btn-primary" href="{{ route('admin.statuses.index') }}"> Вернуться </a>
+                            <a class="btn btn-success" href="{{ route('admin.statuses.update', $statuse->id) }}"> Обновить </a>
+                            <a class="btn btn-danger" href="{{ route('admin.statuses.delete', $statuse->id) }}"> Удалить </a>
                         </div>
 
                     </div>

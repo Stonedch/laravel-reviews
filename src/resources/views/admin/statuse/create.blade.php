@@ -13,7 +13,7 @@
 
                     <div class="card-body">
 
-                        <form action="{{ route('admin-statuse-create-submit') }}" method="post">
+                        <form action="{{ route('admin.statuses.create') }}" method="post">
                             @csrf
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
@@ -40,7 +40,7 @@
                                 <input type="text" name="color_fg" class="form-control">
                             </div>
                             <div class="btn-group mt-1" role="group" aria-label="Basic example">
-                                <a class="btn btn-primary" href="{{ route('admin-statuse-all') }}"> Вернуться </a>
+                                <a class="btn btn-primary" href="{{ route('admin.statuses.index') }}"> Вернуться </a>
                                 <button class="btn btn-success" type="submit"> Создать </button>
                             </div>
                         </form>

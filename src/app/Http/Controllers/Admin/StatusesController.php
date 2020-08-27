@@ -37,7 +37,7 @@ class StatusesController extends Controller {
 
         $statuse->save();
 
-        return redirect()->route('admin-statuse-detail', $statuse->id)->with('success', 'Статус был добавлен.');
+        return redirect()->route('admin.statuses.detail', $statuse->id)->with('success', 'Статус был добавлен.');
     }
 
     public function update($id) {
@@ -57,14 +57,15 @@ class StatusesController extends Controller {
 
         $statuse->update();
 
-        return redirect()->route('admin-statuse-detail', $statuse->id)->with('success', 'Статус был обновлен.');
+        return redirect()->route('admin.statuses.detail', $statuse->id)->with('success', 'Статус был обновлен.');
     }
 
     public function delete($id) {
         $statuse = Statuses::find($id);
         $statuse->delete();
 
-        return redirect()->route('admin-statuse-all')->with('success', 'Статус был удален.');
+        return redirect()->route('admin.statuses.index')->with('success', 'Статус был удален.');
     }
 
 }
+

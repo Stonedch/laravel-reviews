@@ -32,15 +32,15 @@
                                         <td> {{ $statuse->slug }} </td>
                                         <td> {{ $statuse->color_bg }} </td>
                                         <td> {{ $statuse->color_fg }} </td>
-                                        <td> <a href="{{ route('admin-statuse-detail', $statuse->id) }}"> Подробнее </a> </td>
+                                        <td> <a href="{{ route('admin.statuses.detail', $statuse->id) }}"> Подробнее </a> </td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
 
                         <div class="btn-group mt-1" role="group" aria-label="Basic example">
-                            <a class="btn btn-primary" href="{{ route('admin-panel') }}"> Вернуться </a>
-                            <a class="btn btn-success" href="{{ route('admin-statuse-create') }}"> Создать </a>
+                            <a class="btn btn-primary" href="{{ route('admin.index') }}"> Вернуться </a>
+                            <a class="btn btn-success" href="{{ route('admin.statuses.create') }}"> Создать </a>
                         </div>
 
                     </div>

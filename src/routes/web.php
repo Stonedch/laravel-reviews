@@ -40,15 +40,17 @@ Route::group(['prefix' => '/admin', 'as' => 'admin.'], function() {
         Route::get('/{id}/delete', 'Admin\ProductsController@delete')->name('delete');
     });
 
-});
+    Route::group(['prefix' => '/statuses', 'as' => 'statuses.'], function() {
+        Route::get('/', 'Admin\StatusesController@getAll')->name('index');
+        Route::get('/create', 'Admin\StatusesController@create')->name('create');
+        Route::post('/create', 'Admin\StatusesController@createSubmit')->name('create');
+        Route::get('/{id}', 'Admin\StatusesController@getDetail')->name('detail');
+        Route::get('/{id}/update', 'Admin\StatusesController@update')->name('update');
+        Route::post('/{id}/update', 'Admin\StatusesController@updateSubmit')->name('update');
+        Route::get('/{id}/delete', 'Admin\StatusesController@delete')->name('delete');
+    });
 
-Route::get('/admin/statuses', 'Admin\StatusesController@getAll')->name('admin-statuse-all');
-Route::get('/admin/statuses/create', 'Admin\StatusesController@create')->name('admin-statuse-create');
-Route::post('/admin/statuses/create', 'Admin\StatusesController@createSubmit')->name('admin-statuse-create-submit');
-Route::get('/admin/statuses/{id}', 'Admin\StatusesController@getDetail')->name('admin-statuse-detail');
-Route::get('/admin/statuses/{id}/update', 'Admin\StatusesController@update')->name('admin-statuse-update');
-Route::post('/admin/statuses/{id}/update', 'Admin\StatusesController@updateSubmit')->name('admin-statuse-update-submit');
-Route::get('/admin/statuses/{id}/delete', 'Admin\StatusesController@delete')->name('admin-statuse-delete');
+});
 
 Route::get('/admin/reviews', 'Admin\ReviewsController@getAll')->name('admin-review-all');
 Route::get('/admin/reviews/create', 'Admin\ReviewsController@create')->name('admin-review-create');

@@ -13,7 +13,7 @@
 
                     <div class="card-body">
 
-                        <form action="{{ route('admin-statuse-update-submit', $statuse->id) }}" method="post">
+                        <form action="{{ route('admin.statuses.update', $statuse->id) }}" method="post">
                             @csrf
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
@@ -40,7 +40,7 @@
                                 <input type="text" name="color_fg" class="form-control" value="{{ $statuse->color_fg }}">
                             </div>
                             <div class="btn-group mt-1" role="group" aria-label="Basic example">
-                                <a class="btn btn-primary" href="{{ route('admin-statuse-detail', $statuse->id) }}"> Вернуться </a>
+                                <a class="btn btn-primary" href="{{ route('admin.statuses.detail', $statuse->id) }}"> Вернуться </a>
                                 <button class="btn btn-success" type="submit"> Обновить </button>
                             </div>
                         </form>
