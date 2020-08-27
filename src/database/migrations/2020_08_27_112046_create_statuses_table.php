@@ -12,7 +12,7 @@ class CreateStatusesTable extends Migration {
             $table->string('name', 255)->unique();
             $table->string('slug', 255)->unique();
             $table->string('color_bg', 255)->nullable();
-            $table->string('color_fg', 255)->nallable();
+            $table->string('color_fg', 255)->nullable();
         });
     }
 
