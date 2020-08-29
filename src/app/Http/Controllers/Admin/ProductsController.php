@@ -6,6 +6,7 @@ use App\Models\Products;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductsRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductsController extends Controller {
 
@@ -32,7 +33,7 @@ class ProductsController extends Controller {
 
         $product->name = $request->input('name');
         $product->slug = $request->input('slug');
-        $product->picture = $request->input('picture');
+        $product->picture = self::putPicture($product, $request->file('picture'));
         $product->description = $request->input('description');
         $product->price = $request->input('price');
 
@@ -53,7 +54,7 @@ class ProductsController extends Controller {
 
         $product->name = $request->input('name');
         $product->slug = $request->input('slug');
-        $product->picture = $request->input('picture');
+        $product->picture = self::putPicture($product, $request->file('picture'));
         $product->description = $request->input('description');
         $product->price = $request->input('price');
 
@@ -67,6 +68,14 @@ class ProductsController extends Controller {
         $product->delete();
 
         return redirect()->route('admin.products.index')->with('success', 'Продукт был удален.');
+    }
+
+    private function putPicture($product, $uploadPicture) {
+        $pictureName = $product->slug.'_'.time().'.'.$uploadPicture->getClientOriginalExtension();
+
+        Storage::putFileAs('public/pictures', $uploadPicture, $pictureName);
+
+        return $pictureName;
     }
 
 }

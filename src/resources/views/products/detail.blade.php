@@ -21,7 +21,7 @@
                         <div class="row">
 
                             <div class="col-md-8">
-                                <img class="img-fluid" src="{{ $product->picture ?: 'http://placehold.it/750x500' }}">
+                                <img class="img-fluid" src="{{ asset('storage/pictures/'.$product->picture) }}">
                             </div>
 
                             @if ($product->description)

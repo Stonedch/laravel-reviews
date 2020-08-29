@@ -13,7 +13,7 @@
 
                     <div class="card-body">
 
-                        <form action="{{ route('admin.products.update', $product->id) }}" method="post">
+                        <form action="{{ route('admin.products.update', $product->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
@@ -31,7 +31,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"> Picture </span>
                                 </div>
-                                <input type="text" name="picture" class="form-control" value="{{ $product->picture }}">
+                                <input type="file" name="picture" class="form-control" value="{{ $product->picture }}">
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">

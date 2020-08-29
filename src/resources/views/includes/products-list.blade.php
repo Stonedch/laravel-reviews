@@ -10,7 +10,7 @@
                 </div>
                 @if ($product->picture)
                     <div class="col-auto d-none d-lg-block">
-                        <img width="250" height="200" src="{{ $product->picture }}" alt="">
+                        <img width="250" height="200" src="{{ asset('storage/pictures/'.$product->picture) }}" alt="">
                     </div>
                 @endif
             </div>
