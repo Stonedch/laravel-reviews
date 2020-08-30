@@ -19,7 +19,6 @@ class ProductsRequest extends FormRequest {
                 Rule::unique('products', 'name')->ignore($this->id)
             ],
             'slug' => [
-                'required',
                 'max:255',
                 Rule::unique('products', 'slug')->ignore($this->id),
             ],
