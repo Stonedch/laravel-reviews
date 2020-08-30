@@ -31,9 +31,12 @@ class ProductsController extends Controller {
     public function createSubmit(ProductsRequest $request) {
         $product = new Products;
 
+        if ($request->file('picture')) {
+            $product->picture = self::putPicture($product, $request->file('picture'));
+        }
+
         $product->name = $request->input('name');
         $product->slug = $request->input('slug');
-        $product->picture = self::putPicture($product, $request->file('picture'));
         $product->description = $request->input('description');
         $product->price = $request->input('price');
 
@@ -52,9 +55,12 @@ class ProductsController extends Controller {
     public function updateSubmit($id, ProductsRequest $request) {
         $product = Products::find($id);
 
+        if ($request->file('picture')) {
+            $product->picture = self::putPicture($product, $request->file('picture'));
+        }
+
         $product->name = $request->input('name');
         $product->slug = $request->input('slug');
-        $product->picture = self::putPicture($product, $request->file('picture'));
         $product->description = $request->input('description');
         $product->price = $request->input('price');
 
