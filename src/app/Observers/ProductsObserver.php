@@ -2,12 +2,12 @@
 
 namespace App\Observers;
 
-use App\Models\Products;
+use App\Models\Product;
 use Illuminate\Support\Str;
 
 class ProductsObserver {
 
-    public function saving(Products $product) {
+    public function saving(Product $product) {
         $product->slug = Str::slug($product->name);
     }
 

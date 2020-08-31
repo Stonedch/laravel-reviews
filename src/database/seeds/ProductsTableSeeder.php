@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Products;
+use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
@@ -22,7 +22,7 @@ class ProductsTableSeeder extends Seeder
         $data = json_decode($json);
 
         foreach ($data as $row) {
-            Products::create([
+            Product::create([
                 'id' => $row->id ?? NULL,
 
                 'name' => $row->name,

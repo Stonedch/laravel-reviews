@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Users;
-use App\Models\Products;
-use App\Models\Statuses;
-use App\Models\Reviews;
+use App\Models\User;
+use App\Models\Product;
+use App\Models\Status;
+use App\Models\Review;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ReviewsRequest;
 use Illuminate\Http\Request;
@@ -13,14 +13,14 @@ use Illuminate\Http\Request;
 class ReviewsController extends Controller {
 
     public function getAll() {
-        $reviews = Reviews::all();
+        $reviews = Review::all();
         $context = ['reviews' => $reviews];
 
         return view('admin/review/all', $context);
     }
 
     public function getDetail($id) {
-        $review = Reviews::find($id);
+        $review = Review::find($id);
         $context = ['review' => $review];
 
         return view('admin/review/detail', $context);
@@ -28,16 +28,16 @@ class ReviewsController extends Controller {
 
     public function create() {
         $context = [
-            'users' => Users::all(),
-            'products' => Products::all(),
-            'statuses' => Statuses::all(),
+            'users' => User::all(),
+            'products' => Product::all(),
+            'statuses' => Status::all(),
         ];
 
         return view('admin/review/create', $context);
     }
 
     public function createSubmit(ReviewsRequest $request) {
-        $review = new Reviews;
+        $review = new Review;
 
         $review->users_id_foreign = $request->input('users_id_foreign');
         $review->products_id_foreign = $request->input('products_id_foreign');
@@ -53,19 +53,19 @@ class ReviewsController extends Controller {
     }
 
     public function update($id) {
-        $review = Reviews::find($id);
+        $review = Review::find($id);
         $context = [
             'review' => $review,
-            'users' => Users::all(),
-            'products' => Products::all(),
-            'statuses' => Statuses::all(),
+            'users' => User::all(),
+            'products' => Product::all(),
+            'statuses' => Status::all(),
         ];
 
         return view('admin/review/update', $context);
     }
 
     public function updateSubmit($id, ReviewsRequest $request) {
-        $review = Reviews::find($id);
+        $review = Review::find($id);
 
         $review->users_id_foreign = $request->input('users_id_foreign');
         $review->products_id_foreign = $request->input('products_id_foreign');
@@ -81,7 +81,7 @@ class ReviewsController extends Controller {
     }
 
     public function delete($id) {
-        $review = Reviews::find($id);
+        $review = Review::find($id);
         $review->delete();
 
         return redirect()->route('admin.reviews.index')->with('success', 'Отзыв был удален.');

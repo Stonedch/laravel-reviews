@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Users;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\UserUpdateRequest;
@@ -13,21 +13,21 @@ use Illuminate\Support\Facades\Hash;
 class UsersController extends Controller {
 
     public function getAll() {
-        $users = Users::all();
+        $users = User::all();
         $context = ['users' => $users];
 
         return view('admin/user/all', $context);
     }
 
     public function getDetail($id) {
-        $user = Users::find($id);
+        $user = User::find($id);
         $context = ['user' => $user];
 
         return view('admin/user/detail', $context);
     }
 
     public function delete($id) {
-        $user = Users::find($id);
+        $user = User::find($id);
         $user->delete();
 
         return redirect()->route('admin.users.index')->with('success', 'Пользователь был удален.');
@@ -38,7 +38,7 @@ class UsersController extends Controller {
     }
 
     public function createSubmit(UserRequest $request) {
-        $user = new Users;
+        $user = new User;
 
         $user->name = $request->input('name');
         $user->email = $request->input('email');
@@ -50,14 +50,14 @@ class UsersController extends Controller {
     }
 
     public function update($id) {
-        $user = Users::find($id);
+        $user = User::find($id);
         $context = ['user' => $user];
 
         return view('admin/user/update', $context);
     }
 
     public function updateSubmit($id, UserUpdateRequest $request) {
-        $user = Users::find($id);
+        $user = User::find($id);
 
         $user->name = $request->input('name');
         $user->email = $request->input('email');
@@ -68,14 +68,14 @@ class UsersController extends Controller {
     }
 
     public function updatePassword($id) {
-        $user = Users::find($id);
+        $user = User::find($id);
         $context = ['user' => $user];
 
         return view('admin/user/update-password', $context);
     }
 
     public function updatePasswordSubmit($id, UserUpdatePasswordRequest $request) {
-        $user = Users::find($id);
+        $user = User::find($id);
 
         $user->password = Hash::make($request->input('password'));
 

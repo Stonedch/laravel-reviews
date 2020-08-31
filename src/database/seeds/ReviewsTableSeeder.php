@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Reviews;
+use App\Models\Review;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
@@ -22,7 +22,7 @@ class ReviewsTableSeeder extends Seeder
         $data = json_decode($json);
 
         foreach ($data as $row) {
-            Reviews::create([
+            Review::create([
                 'id' => $row->id ?? NULL,
 
                 'products_id_foreign' => $row->products_id_foreign,

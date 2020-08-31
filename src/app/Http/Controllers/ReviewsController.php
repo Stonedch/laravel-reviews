@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Reviews;
-use App\Models\Statuses;
-use App\Models\Products;
+use App\Models\Review;
+use App\Models\Status;
+use App\Models\Product;
 use App\Http\Requests\ReviewsRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,9 +13,9 @@ class ReviewsController extends Controller {
 
     public function createSubmit(ReviewsRequest $request) {
         $product_id = $request->input('products_id_foreign');
-        $product = Products::find($product_id);
-        $status = Statuses::where('slug', '=', 'new')->firstOrFail();
-        $review = new Reviews;
+        $product = Product::find($product_id);
+        $status = Status::where('slug', '=', 'new')->firstOrFail();
+        $review = new Review;
 
         if (Auth::user()) {
             $review->users_id_foreign = Auth::user()->id;

@@ -40,7 +40,7 @@
                                 <div class="media text-muted pt-3">
                                     <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
                                         @if ($review->users_id_foreign)
-                                            <strong class="d-block text-gray-dark"> {{ App\Models\Users::find($review->users_id_foreign)->name }} </strong>
+                                            <strong class="d-block text-gray-dark"> {{ App\Models\User::find($review->users_id_foreign)->name }} </strong>
                                         @else
                                             <strong class="d-block text-gray-dark"> Anonim </strong>
                                         @endif

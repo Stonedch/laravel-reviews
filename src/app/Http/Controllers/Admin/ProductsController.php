@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Products;
+use App\Models\Product;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductsRequest;
 use Illuminate\Http\Request;
@@ -11,14 +11,14 @@ use Illuminate\Support\Facades\Storage;
 class ProductsController extends Controller {
 
     public function getAll() {
-        $products = Products::all();
+        $products = Product::all();
         $context = ['products' => $products];
 
         return view('admin/product/all', $context);
     }
 
     public function getDetail($id) {
-        $product = Products::find($id);
+        $product = Product::find($id);
         $context = ['product' => $product];
 
         return view('admin/product/detail', $context);
@@ -29,7 +29,7 @@ class ProductsController extends Controller {
     }
 
     public function createSubmit(ProductsRequest $request) {
-        $product = new Products;
+        $product = new Product;
 
         if ($request->file('picture')) {
             $product->picture = self::putPicture($product, $request->file('picture'));
@@ -46,14 +46,14 @@ class ProductsController extends Controller {
     }
 
     public function update($id) {
-        $product = Products::find($id);
+        $product = Product::find($id);
         $context = ['product' => $product];
 
         return view('admin/product/update', $context);
     }
 
     public function updateSubmit($id, ProductsRequest $request) {
-        $product = Products::find($id);
+        $product = Product::find($id);
 
         if ($request->file('picture')) {
             $product->picture = self::putPicture($product, $request->file('picture'));
@@ -70,7 +70,7 @@ class ProductsController extends Controller {
     }
 
     public function delete($id) {
-        $product = Products::find($id);
+        $product = Product::find($id);
         $product->delete();
 
         return redirect()->route('admin.products.index')->with('success', 'Продукт был удален.');

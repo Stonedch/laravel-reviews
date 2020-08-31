@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Statuses;
+use App\Models\Status;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StatusesRequest;
 use Illuminate\Http\Request;
@@ -10,14 +10,14 @@ use Illuminate\Http\Request;
 class StatusesController extends Controller {
 
     public function getAll() {
-        $statuses = Statuses::all();
+        $statuses = Status::all();
         $context = ['statuses' => $statuses];
 
         return view('admin/statuse/all', $context);
     }
 
     public function getDetail($id) {
-        $statuse = Statuses::find($id);
+        $statuse = Status::find($id);
         $context = ['statuse' => $statuse];
 
         return view('admin/statuse/detail', $context);
@@ -28,7 +28,7 @@ class StatusesController extends Controller {
     }
 
     public function createSubmit(StatusesRequest $request) {
-        $statuse = new Statuses;
+        $statuse = new Status;
 
         $statuse->name = $request->input('name');
         $statuse->slug = $request->input('slug');
@@ -41,14 +41,14 @@ class StatusesController extends Controller {
     }
 
     public function update($id) {
-        $statuse = Statuses::find($id);
+        $statuse = Status::find($id);
         $context = ['statuse' => $statuse];
 
         return view('admin/statuse/update', $context);
     }
 
     public function updateSubmit($id, StatusesRequest $request) {
-        $statuse = Statuses::find($id);
+        $statuse = Status::find($id);
 
         $statuse->name = $request->input('name');
         $statuse->slug = $request->input('slug');
@@ -61,7 +61,7 @@ class StatusesController extends Controller {
     }
 
     public function delete($id) {
-        $statuse = Statuses::find($id);
+        $statuse = Status::find($id);
         $statuse->delete();
 
         return redirect()->route('admin.statuses.index')->with('success', 'Статус был удален.');

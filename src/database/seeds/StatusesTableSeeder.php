@@ -1,7 +1,7 @@
 <?php
 
+use App\Models\Status;
 use Illuminate\Database\Seeder;
-use App\Models\Statuses;
 
 class StatusesTableSeeder extends Seeder
 {
@@ -21,7 +21,7 @@ class StatusesTableSeeder extends Seeder
         $data = json_decode($json);
 
         foreach ($data as $row) {
-            Statuses::create(array(
+            Status::create(array(
                 'id' => $row->id ?? NULL,
 
                 'name' => $row->name,
