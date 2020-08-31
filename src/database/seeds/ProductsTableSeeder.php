@@ -9,6 +9,11 @@ class ProductsTableSeeder extends Seeder
     private const TABLE_NAME = 'products';
     private const JSON_PATH = 'database/data/products.json';
 
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
     public function run()
     {
         DB::table(self::TABLE_NAME)->delete();
