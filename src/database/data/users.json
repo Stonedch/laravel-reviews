@@ -3,12 +3,14 @@
         "id": 1,
         "name": "admin",
         "email": "admin@admin.com",
-        "password": "secret"
+        "password": "secret",
+        "roles_id_foreign": 1
     },
     {
         "id": 2,
         "name": "user",
         "email": "user@user.com",
-        "password": "secret"
+        "password": "secret",
+        "roles_id_foreign": 2
     }
 ]
