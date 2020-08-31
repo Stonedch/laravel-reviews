@@ -1,4 +1,4 @@
-version: "3"
+version: "3.8"
 
 networks:
     laravel:
@@ -6,21 +6,25 @@ networks:
 services:
 
     php:
-        user: "${UID}:${GID}"
         build:
             context: ./images/php
             dockerfile: Dockerfile
-        container_name: php
-        volumes:
-            - ./src:/var/www/html
+            args:
+                UNAME: ${UNAME}
+                UID: ${UID}
+                GID: ${GID}
+        container_name: laravel_reviews_php
+        tty: true
         ports:
             - 9000:9000
+        volumes:
+            - ./src:/var/www/html
         networks:
             - laravel
 
     mysql:
         image: mariadb
-        container_name: mysql
+        container_name: laravel_reviews_mysql
         restart: unless-stopped
         tty: true
         ports:
@@ -35,7 +39,7 @@ services:
 
     pma:
         image: phpmyadmin/phpmyadmin
-        container_name: pma
+        container_name: laravel_reviews_pma
         restart: always
         links:
             - mysql:mysql
@@ -52,7 +56,7 @@ services:
 
     nginx:
         image: nginx:stable
-        container_name: nginx
+        container_name: laravel_reviews_nginx
         ports:
             - 8000:80
         volumes:
