@@ -16,7 +16,7 @@ Route::get('/products/{id}', 'ProductsController@getDetail')->name('products-det
 
 Route::post('/review/create', 'ReviewsController@createSubmit')->name('review-create');
 
-Route::group(['prefix' => '/admin', 'as' => 'admin.'], function() {
+Route::group(['prefix' => '/admin', 'as' => 'admin.', 'middleware' => 'admin'], function() {
 
     Route::get('/', 'Admin\AdminController@panel')->name('index');
 
