@@ -16,7 +16,9 @@ Route::group(['prefix' => '/', 'as' => 'site.'], function() {
 });
 
 Route::group(['prefix' => '/admin', 'as' => 'admin.', 'middleware' => 'admin'], function() {
+
     Route::get('/', 'Admin\AdminController@index')->name('index');
+
     Route::group(['prefix' => '/user', 'as' => 'user.'], function() {
         Route::get('/all', 'Admin\UserController@index')->name('index');
         Route::get('/create', 'Admin\UserController@create')->name('create');
@@ -28,6 +30,17 @@ Route::group(['prefix' => '/admin', 'as' => 'admin.', 'middleware' => 'admin'], 
         Route::post('/{id}/update/password', 'Admin\UserController@updatePassword')->name('update.password');
         Route::get('/{id}/destroy', 'Admin\UserController@destroy')->name('destroy');
     });
+
+    Route::group(['prefix' => '/role', 'as' => 'role.'], function() {
+        Route::get('/all', 'Admin\RoleController@index')->name('index');
+        Route::get('/create', 'Admin\RoleController@create')->name('create');
+        Route::post('/store', 'Admin\RoleController@store')->name('store');
+        Route::get('/{id}', 'Admin\RoleController@show')->name('show');
+        Route::get('/{id}/edit', 'Admin\RoleController@edit')->name('edit');
+        Route::post('/{id}/update', 'Admin\RoleController@update')->name('update');
+        Route::get('/{id}/destroy', 'Admin\RoleController@destroy')->name('destroy');
+    });
+
     Route::group(['prefix' => '/product', 'as' => 'product.'], function() {
         Route::get('/all', 'Admin\ProductController@index')->name('index');
         Route::get('/create', 'Admin\ProductController@create')->name('create');
@@ -37,6 +50,7 @@ Route::group(['prefix' => '/admin', 'as' => 'admin.', 'middleware' => 'admin'], 
         Route::post('/{id}/update', 'Admin\ProductController@update')->name('update');
         Route::get('/{id}/destroy', 'Admin\ProductController@destroy')->name('destroy');
     });
+
     Route::group(['prefix' => '/status', 'as' => 'status.'], function() {
         Route::get('/all', 'Admin\StatusController@index')->name('index');
         Route::get('/create', 'Admin\StatusController@create')->name('create');
@@ -55,4 +69,5 @@ Route::group(['prefix' => '/admin', 'as' => 'admin.', 'middleware' => 'admin'], 
         Route::post('/{id}/update', 'Admin\ReviewController@update')->name('update');
         Route::get('/{id}/destroy', 'Admin\ReviewController@destroy')->name('destroy');
     });
+
 });
