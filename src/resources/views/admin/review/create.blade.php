@@ -12,9 +12,10 @@
             @csrf
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01"> User </label>
+                    <label class="input-group-text" for="inputGroupSelect01"> User <span class="text-danger">*</span> </label>
                 </div>
                 <select class="custom-select" name="users_id_foreign" id="inputGroupSelect01">
+                        <option value=""> Anonim </option>
                     @foreach ($users as $user)
                         <option value="{{ $user->id }}"> {{ $user->name }} </option>
                     @endforeach
@@ -22,7 +23,7 @@
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01"> Product </label>
+                    <label class="input-group-text" for="inputGroupSelect01"> Product <span class="text-danger">*</span> </label>
                 </div>
                 <select class="custom-select" name="products_id_foreign" id="inputGroupSelect01">
                     @foreach ($products as $product)
@@ -32,7 +33,7 @@
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01"> Statuse </label>
+                    <label class="input-group-text" for="inputGroupSelect01"> Status <span class="text-danger">*</span> </label>
                 </div>
                 <select class="custom-select" name="statuses_id_foreign" id="inputGroupSelect01">
                     @foreach ($statuses as $status)
@@ -48,7 +49,7 @@
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text"> Score </span>
+                    <span class="input-group-text"> Score <span class="text-danger">*</span> </span>
                 </div>
                 <input type="number" min="1" max="10" name="score" class="form-control">
             </div>
