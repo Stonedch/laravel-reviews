@@ -15,7 +15,7 @@ class RoleRequest extends FormRequest
     {
         return [
             'name' => 'required|max:255',
-            'slug' => 'required|max:255',
+            'slug' => 'nullable|max:255',
         ];
     }
 }
