@@ -9,20 +9,29 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title> {{ config('app.name', 'Laravel') }} </title>
 </head>
 
 <body>
 
     <div id="app">
-
         @include('includes/header')
 
         <main class="py-4">
 
             @include('includes/messages')
 
-            @yield('content')
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="card">
+
+                            @yield('content')
+
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </main>
 

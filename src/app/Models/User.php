@@ -46,4 +46,14 @@ class User extends Authenticatable
     {
         return $this->role->name == 'admin';
     }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'users_id_foreign');
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class, 'users_id_foreign');
+    }
 }

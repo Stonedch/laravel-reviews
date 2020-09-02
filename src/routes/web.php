@@ -4,63 +4,55 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', function () {
-    return redirect()->route('home');
+Route::group(['prefix' => '/', 'as' => 'site.'], function() {
+    Route::get('/', 'Site\IndexController@index')->name('index');
+    Route::group(['prefix' => '/product', 'as' => 'product.'], function() {
+        Route::get('/all', 'Site\ProductController@index')->name('index');
+        Route::get('/{slug}', 'Site\ProductController@show')->name('show');
+    });
+    Route::group(['prefix' => '/review', 'as' => 'review.'], function() {
+        Route::post('/store', 'Site\ReviewController@store')->name('store');
+    });
 });
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/products', 'ProductsController@getAll')->name('products-all');
-
-Route::get('/products/{id}', 'ProductsController@getDetail')->name('products-detail');
-
-Route::post('/review/create', 'ReviewsController@createSubmit')->name('review-create');
 
 Route::group(['prefix' => '/admin', 'as' => 'admin.', 'middleware' => 'admin'], function() {
-
     Route::get('/', 'Admin\AdminController@index')->name('index');
-
-    Route::group(['prefix' => '/users', 'as' => 'users.'], function() {
-        Route::get('/', 'Admin\UsersController@getAll')->name('index');
-        Route::get('/create', 'Admin\UsersController@create')->name('create');
-        Route::post('/create', 'Admin\UsersController@createSubmit')->name('create');
-        Route::get('/{id}', 'Admin\UsersController@getDetail')->name('detail');
-        Route::get('/{id}/update', 'Admin\UsersController@update')->name('update');
-        Route::post('/{id}/update', 'Admin\UsersController@updateSubmit')->name('update');
-        Route::get('/{id}/update-password', 'Admin\UsersController@updatePassword')->name('update.password');
-        Route::post('/{id}/update-password', 'Admin\UsersController@updatePasswordSubmit')->name('update.password');
-        Route::get('/{id}/delete', 'Admin\UsersController@delete')->name('delete');
+    Route::group(['prefix' => '/user', 'as' => 'user.'], function() {
+        Route::get('/all', 'Admin\UserController@index')->name('index');
+        Route::get('/create', 'Admin\UserController@create')->name('create');
+        Route::post('/store', 'Admin\UserController@store')->name('store');
+        Route::get('/{id}', 'Admin\UserController@show')->name('show');
+        Route::get('/{id}/edit', 'Admin\UserController@edit')->name('edit');
+        Route::post('/{id}/update', 'Admin\UserController@update')->name('update');
+        Route::get('/{id}/edit/password', 'Admin\UserController@editPassword')->name('edit.password');
+        Route::post('/{id}/update/password', 'Admin\UserController@updatePassword')->name('update.password');
+        Route::get('/{id}/destroy', 'Admin\UserController@destroy')->name('destroy');
     });
-
-    Route::group(['prefix' => '/products', 'as' => 'products.'], function() {
-        Route::get('/', 'Admin\ProductsController@getAll')->name('index');
-        Route::get('/create', 'Admin\ProductsController@create')->name('create');
-        Route::post('/create', 'Admin\ProductsController@createSubmit')->name('create');
-        Route::get('/{id}', 'Admin\ProductsController@getDetail')->name('detail');
-        Route::get('/{id}/update', 'Admin\ProductsController@update')->name('update');
-        Route::post('/{id}/update', 'Admin\ProductsController@updateSubmit')->name('update');
-        Route::get('/{id}/delete', 'Admin\ProductsController@delete')->name('delete');
+    Route::group(['prefix' => '/product', 'as' => 'product.'], function() {
+        Route::get('/all', 'Admin\ProductController@index')->name('index');
+        Route::get('/create', 'Admin\ProductController@create')->name('create');
+        Route::post('/store', 'Admin\ProductController@store')->name('store');
+        Route::get('/{id}', 'Admin\ProductController@show')->name('show');
+        Route::get('/{id}/edit', 'Admin\ProductController@edit')->name('edit');
+        Route::post('/{id}/update', 'Admin\ProductController@update')->name('update');
+        Route::get('/{id}/destroy', 'Admin\ProductController@destroy')->name('destroy');
     });
-
-    Route::group(['prefix' => '/statuses', 'as' => 'statuses.'], function() {
-        Route::get('/', 'Admin\StatusesController@getAll')->name('index');
-        Route::get('/create', 'Admin\StatusesController@create')->name('create');
-        Route::post('/create', 'Admin\StatusesController@createSubmit')->name('create');
-        Route::get('/{id}', 'Admin\StatusesController@getDetail')->name('detail');
-        Route::get('/{id}/update', 'Admin\StatusesController@update')->name('update');
-        Route::post('/{id}/update', 'Admin\StatusesController@updateSubmit')->name('update');
-        Route::get('/{id}/delete', 'Admin\StatusesController@delete')->name('delete');
+    Route::group(['prefix' => '/status', 'as' => 'status.'], function() {
+        Route::get('/all', 'Admin\StatusController@index')->name('index');
+        Route::get('/create', 'Admin\StatusController@create')->name('create');
+        Route::post('/store', 'Admin\StatusController@store')->name('store');
+        Route::get('/{id}', 'Admin\StatusController@show')->name('show');
+        Route::get('/{id}/edit', 'Admin\StatusController@edit')->name('edit');
+        Route::post('/{id}/update', 'Admin\StatusController@update')->name('update');
+        Route::get('/{id}/destroy', 'Admin\StatusController@destroy')->name('destroy');
     });
-
-    Route::group(['prefix' => '/reviews', 'as' => 'reviews.'], function() {
-        Route::get('/', 'Admin\ReviewsController@getAll')->name('index');
-        Route::get('/create', 'Admin\ReviewsController@create')->name('create');
-        Route::post('/create', 'Admin\ReviewsController@createSubmit')->name('create');
-        Route::get('/{id}', 'Admin\ReviewsController@getDetail')->name('detail');
-        Route::get('/{id}/update', 'Admin\ReviewsController@update')->name('update');
-        Route::post('/{id}/update', 'Admin\ReviewsController@updateSubmit')->name('update');
-        Route::get('/{id}/delete', 'Admin\ReviewsController@delete')->name('delete');
+    Route::group(['prefix' => '/review', 'as' => 'review.'], function() {
+        Route::get('/all', 'Admin\ReviewController@index')->name('index');
+        Route::get('/create', 'Admin\ReviewController@create')->name('create');
+        Route::post('/store', 'Admin\ReviewController@store')->name('store');
+        Route::get('/{id}', 'Admin\ReviewController@show')->name('show');
+        Route::get('/{id}/edit', 'Admin\ReviewController@edit')->name('edit');
+        Route::post('/{id}/update', 'Admin\ReviewController@update')->name('update');
+        Route::get('/{id}/destroy', 'Admin\ReviewController@destroy')->name('destroy');
     });
-
 });
-

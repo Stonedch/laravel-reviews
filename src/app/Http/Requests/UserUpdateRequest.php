@@ -5,13 +5,15 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class UserUpdateRequest extends FormRequest {
-
-    public function authorize() {
+class UserUpdateRequest extends FormRequest
+{
+    public function authorize()
+    {
         return true;
     }
 
-    public function rules() {
+    public function rules()
+    {
         return [
             'name' => 'required',
             'email' => [
@@ -22,11 +24,11 @@ class UserUpdateRequest extends FormRequest {
         ];
     }
 
-    public function messages() {
+    public function messages()
+    {
         return [
             'name.required' => 'Поле "Name" является обязательным.',
             'email.required' => 'Поле "E-mail" является обязательным.',
         ];
     }
-
 }

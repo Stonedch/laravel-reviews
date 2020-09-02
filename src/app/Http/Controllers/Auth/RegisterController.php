@@ -12,27 +12,29 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
-class RegisterController extends Controller {
-
+class RegisterController extends Controller
+{
     use RegistersUsers;
 
     protected $generatedPassword;
 
     protected $redirectTo = RouteServiceProvider::HOME;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->middleware('guest');
     }
 
-    protected function validator(array $data) {
+    protected function validator(array $data)
+    {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
         ]);
     }
 
-    protected function create(array $data) {
-
+    protected function create(array $data)
+    {
         $this->password = Str::random(8);
 
         return User::create([
@@ -42,8 +44,8 @@ class RegisterController extends Controller {
         ]);
     }
 
-    protected function registered(Request $request, $user) {
-
+    protected function registered(Request $request, $user)
+    {
         event(new UserRegistered($user, $this->password));
 
         $this->guard()->logout();
@@ -52,4 +54,3 @@ class RegisterController extends Controller {
             ->withSuccess('Thanks for registration! The password has been sent to your email.');
     }
 }
-

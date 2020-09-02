@@ -19,6 +19,6 @@ class CheckIfAdmin
         if (Auth::check() && Auth::user()->isAdmin()) {
             return $next($request);
         }
-        return back()->withErrors(['Вы не являетесь привилегированным пользователем.']);
+        return back()->withErrors(['You are not a privileged user']);
     }
 }

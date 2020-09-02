@@ -11,10 +11,10 @@
             <!-- Left Side Of NAvbar -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home') }}"> Главная </a>
+                    <a class="nav-link" href="{{ route('site.index') }}"> Home </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('products-all') }}"> Продукты </a>
+                    <a class="nav-link" href="{{ route('site.product.index') }}"> Products </a>
                 </li>
             </ul>
 

@@ -11,8 +11,8 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class UserRegistered {
-
+class UserRegistered
+{
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $user;
@@ -23,6 +23,4 @@ class UserRegistered {
         $this->user = $user;
         $this->password = $password;
     }
-
 }
-
