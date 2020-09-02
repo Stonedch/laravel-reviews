@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="card-header">
-        <h1> ПА - [Products] {{ $review->name }} </h1>
+        <h1> Dashboard - [Reviews] {{ $review->name }} </h1>
     </div>
 
     <div class="card-body">
