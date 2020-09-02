@@ -72,7 +72,13 @@ This application is a website with product reviews based on *Laravel 7.24*.
     foo@bar: laravel-reviews $ docker-compose exec php php artisan migrate --seed
     ```
 
-8. Install and run npm:
+8. Create storage symbolic link:
+
+    ```console
+    foo@bar: laravel-reviews $ docker-compose exec php php artisan link:generate
+    ```
+
+9. Install and run npm:
 
     ```console
     foo@bar: laravel-reviews $ docker-compose exec php npm install
