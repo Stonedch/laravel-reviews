@@ -15,22 +15,22 @@ class CreateReviewsTable extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('products_id_foreign');
-            $table->unsignedBigInteger('users_id_foreign')->nullable();
-            $table->unsignedBigInteger('statuses_id_foreign');
+            $table->unsignedBigInteger('product_id');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('status_id');
             $table->tinyInteger('score');
             $table->string('name', 255)->nullable();
             $table->text('positive')->nullable();
             $table->text('negative')->nullable();
             $table->timestamps();
 
-            $table->foreign('products_id_foreign')
+            $table->foreign('product_id')
                   ->references('id')->on('products')
                   ->onDelete('cascade');
-            $table->foreign('users_id_foreign')
+            $table->foreign('user_id')
                   ->references('id')->on('users')
                   ->onDelete('cascade');
-            $table->foreign('statuses_id_foreign')
+            $table->foreign('status_id')
                   ->references('id')->on('statuses')
                   ->onDelete('cascade');
         });

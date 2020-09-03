@@ -25,9 +25,9 @@ class ReviewsTableSeeder extends Seeder
             Review::create([
                 'id' => $row->id ?? NULL,
 
-                'products_id_foreign' => $row->products_id_foreign,
-                'users_id_foreign' => $row->users_id_foreign ?? NULL,
-                'statuses_id_foreign' => $row->statuses_id_foreign,
+                'product_id' => $row->product_id,
+                'user_id' => $row->user_id ?? NULL,
+                'status_id' => $row->status_id,
 
                 'score' => $row->score,
                 'name' => $row->name ?? NULL,

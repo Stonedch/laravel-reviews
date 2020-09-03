@@ -15,15 +15,15 @@
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 {{ $review->product->name ?: 'Null' }}
-                <span class="badge badge-primary badge-pill"> Product </span>
+                <span class="badge badge-primary badge-pill"> product </span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 {{ $review->user->name ?: 'Anonim' }}
-                <span class="badge badge-primary badge-pill"> users_id_foreign </span>
+                <span class="badge badge-primary badge-pill"> user </span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 {{ $review->status->name ?: 'Null' }}
-                <span class="badge badge-primary badge-pill"> statuses_id_foreign </span>
+                <span class="badge badge-primary badge-pill"> status </span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 {{ $review->name ?: 'Null' }}

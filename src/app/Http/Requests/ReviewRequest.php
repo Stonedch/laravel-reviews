@@ -15,9 +15,9 @@ class ReviewRequest extends FormRequest
     public function rules()
     {
         return [
-            'products_id_foreign' => 'required|exists:products,id',
-            'users_id_foreign' => 'nullable|exists:users,id',
-            'statuses_id_foreign' => 'nullable|exists:statuses,id',
+            'product_id' => 'required|exists:products,id',
+            'user_id' => 'nullable|exists:users,id',
+            'status_id' => 'nullable|exists:statuses,id',
             'name' => 'nullable|max:255',
             'score' => 'required|numeric|min:1|max:10',
             'positive' => 'nullable',

@@ -2,7 +2,7 @@
 
     @csrf
 
-    <input type="hidden" name="products_id_foreign" value="{{ $product->id }}">
+    <input type="hidden" name="product_id" value="{{ $product->id }}">
 
     <div class="input-group mb-3">
         <div class="input-group-prepend">
