@@ -21,4 +21,9 @@ class Status extends Model
     {
         return $this->hasMany(Product::class, 'statuses_id_foreign');
     }
+
+    public static function whereSlug($value)
+    {
+        return Status::where('slug', '=', $value)->firstOrFail();
+    }
 }

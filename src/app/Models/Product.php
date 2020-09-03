@@ -20,4 +20,10 @@ class Product extends Model
     {
         return $this->hasMany(Review::class, 'products_id_foreign');
     }
+
+    public function reviewsUnRejected()
+    {
+        return $this->reviews()
+                    ->where('statuses_id_foreign', '<>', Status::whereSlug('rejected')->id);
+    }
 }

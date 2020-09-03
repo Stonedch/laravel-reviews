@@ -33,7 +33,7 @@
         <div class="my-3 p-3 bg-white rounded box-shadow">
             <h6 class="border-bottom border-gray"> Reviews: </h6>
 
-            @include ('site/review/list', ['reviews' => $product->reviews])
+            @include ('site/review/list', ['reviews' => $product->reviewsUnRejected])
 
             @include ('site/review/form')
 
