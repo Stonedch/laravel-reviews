@@ -14,7 +14,7 @@
 
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text"> Name </span>
+                    <span class="input-group-text"> Name <span class="text-danger">*</span> </span>
                 </div>
                 <input type="text" name="name" class="form-control">
             </div>
