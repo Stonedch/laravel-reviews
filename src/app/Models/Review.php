@@ -10,6 +10,7 @@ class Review extends Model
 
     protected $fillable = [
         'products_id_foreign',
+        'statuses_id_foreign',
         'score',
         'name',
         'positive',

@@ -13,6 +13,6 @@ class ReviewObserver
         $review->users_id_foreign =
            $review->users_id_foreign ?? Auth::id();
         $review->statuses_id_foreign =
-            Status::where('slug', '=', 'new')->firstOrFail()->id;
+            $review->statuses_id_foreign ?? Status::where('slug', '=', 'new')->firstOrFail()->id;
     }
 }
