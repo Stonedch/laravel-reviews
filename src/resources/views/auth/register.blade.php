@@ -2,50 +2,50 @@
 
 @section('content')
 
-    <div class="card-header">
-        {{ __('Register') }}
-    </div>
+    <style>
+        .md-form input:focus {
+            box-shadow: 0 1px 0 0 black !important;
+            border-bottom: 1px solid black !important;
+        }
+    </style>
 
-    <div class="card-body">
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
+    <div class="row justify-content-center">
 
-            <div class="form-group row">
-                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+        <div class="col-md-6 mb-4">
 
-                <div class="col-md-6">
-                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+            <!--Naked Form-->
+            <div class="card-body">
 
-                    @error('name')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                <!--Header-->
+                <div class="text-center black-text">
+                    <h3> <i class="fas fa-lock"></i> Register: </h3>
                 </div>
+
+                <form method="POST" action="{{ route('register') }}">
+
+                    @csrf
+
+                    <!--Body-->
+                    <div class="md-form">
+                        <i class="fas fa-envelope prefix grey-text"></i>
+                        <input type="email" id="form-email" class="form-control @error('email') is-invalid @enderror" placeholder="Your email" name="email" value="{{ old('email') }}">
+                    </div>
+
+                    <div class="md-form">
+                        <i class="far fa-address-card prefix grey-text"></i>
+                        <input type="text" id="form-email" class="form-control @error('name') is-invalid @enderror" placeholder="Your name" name="name" value="{{ old('name') }}">
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-black white-text waves-effect waves-light"> Register </button>
+                    </div>
+
+                </form>
+
             </div>
 
-            <div class="form-group row">
-                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+        </div>
 
-                <div class="col-md-6">
-                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                    @error('email')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-            </div>
-
-            <div class="form-group row mb-0">
-                <div class="col-md-6 offset-md-4">
-                    <button type="submit" class="btn btn-primary">
-                        {{ __('Register') }}
-                    </button>
-                </div>
-            </div>
-        </form>
     </div>
 
 @endsection
