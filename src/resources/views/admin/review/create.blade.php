@@ -14,7 +14,7 @@
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="inputGroupSelect01"> User <span class="text-danger">*</span> </label>
                 </div>
-                <select class="custom-select" name="users_id_foreign" id="inputGroupSelect01">
+                <select class="custom-select" name="user_id" id="inputGroupSelect01">
                         <option value=""> Anonim </option>
                     @foreach ($users as $user)
                         <option value="{{ $user->id }}"> {{ $user->name }} </option>
@@ -25,7 +25,7 @@
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="inputGroupSelect01"> Product <span class="text-danger">*</span> </label>
                 </div>
-                <select class="custom-select" name="products_id_foreign" id="inputGroupSelect01">
+                <select class="custom-select" name="product_id" id="inputGroupSelect01">
                     @foreach ($products as $product)
                         <option value="{{ $product->id }}"> {{ $product->name }} </option>
                     @endforeach
@@ -35,7 +35,7 @@
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="inputGroupSelect01"> Status <span class="text-danger">*</span> </label>
                 </div>
-                <select class="custom-select" name="statuses_id_foreign" id="inputGroupSelect01">
+                <select class="custom-select" name="status_id" id="inputGroupSelect01">
                     @foreach ($statuses as $status)
                         <option value="{{ $status->id }}"> {{ $status->name }} </option>
                     @endforeach

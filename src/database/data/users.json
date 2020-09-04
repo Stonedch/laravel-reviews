@@ -4,13 +4,13 @@
         "name": "admin",
         "email": "admin@admin.com",
         "password": "secret",
-        "roles_id_foreign": 1
+        "role_id": 1
     },
     {
         "id": 2,
         "name": "user",
         "email": "user@user.com",
         "password": "secret",
-        "roles_id_foreign": 2
+        "role_id": 2
     }
 ]

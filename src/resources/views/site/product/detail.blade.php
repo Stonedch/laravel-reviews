@@ -2,45 +2,73 @@
 
 @section('content')
 
-    <div class="card-header">
-        <h1> Product: {{ $product->name }} </h1>
+
+    <div class="text-center mb-5">
+        <h1 class="h1 text-uppercase"> product </h3>
+        <h3 class="h3"> details </h3>
     </div>
 
-    <div class="card-body">
-
-        <h1 class="my-4">
-            Product name: {{ $product->name }}
-            <small> - {{ number_format($product->price) }} </small>
-        </h1>
+    <!--Section: Content-->
+    <section class="text-center">
 
         <div class="row">
 
             @if ($product->picture)
-                <div class="col-md-8">
+                <div class="col-lg-6">
                     <img class="img-fluid" src="{{ asset('storage/pictures/'.$product->picture) }}">
                 </div>
             @endif
 
-            @if ($product->description)
-                <div class="col-md-4">
-                    <h3 class="my-3"> Description: </h3>
-                    <p> {{ $product->description }} </p>
+            <div class="col-lg-6 text-center text-md-left">
+
+                <h2 class="h2-responsive text-center text-md-left product-name font-weight-bold dark-grey-text mb-1 ml-xl-0 ml-4">
+                    <strong> {{ $product->name }} </strong>
+                </h2>
+                <h3 class="h3-responsive text-center text-md-left mb-5 ml-xl-0 ml-4">
+                    <span class="red-text font-weight-bold">
+                        <strong>${{ number_format($product->price) }}</strong>
+                    </span>
+                </h3>
+
+                <!--Accordion wrapper-->
+                <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+                    <!-- Accordion card -->
+                    <div class="card">
+                        <!-- Card header -->
+                        <div class="card-header black" role="tab" id="headingOne1">
+                            <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="true" aria-controls="collapseOne1">
+                                <h5 class="mb-0 white-text">
+                                    Description
+                                    <i class="fas fa-angle-down rotate-icon"></i>
+                                </h5>
+                            </a>
+                        </div>
+                    <!-- Card body -->
+                    <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1" data-parent="#accordionEx">
+                        <div class="card-body">
+                            {{ $product->description ?? NULL}}
+                        </div>
+                    </div>
                 </div>
-            @endif
+            </div>
 
         </div>
 
-        <div class="my-3 p-3 bg-white rounded box-shadow">
-            <h6 class="border-bottom border-gray"> Reviews: </h6>
+    </section>
 
-            @include ('site/review/list', ['reviews' => $product->reviewsUnRejected])
+    <section class="my-5">
 
-            @include ('site/review/form')
-
-
+        <div class="text-center mb-3">
+            <h3 class="h3"> Reviews </h3>
+            <span class="grey-text">
+                <i class="far fa-comments pr-1"></i> {{ $product->reviews->count() }}
+            </span>
         </div>
 
+        @include ('site/review/form')
 
-    </div>
+        @include ('site/review/list', ['reviews' => $product->reviews])
+
+    </section>
 
 @endsection

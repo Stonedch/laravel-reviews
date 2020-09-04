@@ -19,7 +19,7 @@ class Status extends Model
 
     public function reviews()
     {
-        return $this->hasMany(Product::class, 'statuses_id_foreign');
+        return $this->hasMany(Product::class);
     }
 
     public static function whereSlug($value)

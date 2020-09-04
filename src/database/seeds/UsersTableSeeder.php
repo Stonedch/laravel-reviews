@@ -30,7 +30,7 @@ class UsersTableSeeder extends Seeder
                 'email' => $row->email,
                 'email_verified_at' => $row->email_verified_at ?? Carbon::now(),
                 'password' => Hash::make($row->password),
-                'roles_id_foreign' => $row->roles_id_foreign ?? NULL,
+                'role_id' => $row->role_id ?? NULL,
 
                 'created_at' => $row->created_at ?? Carbon::now(),
                 'updated_at' => $row->updated_at ?? Carbon::now(),

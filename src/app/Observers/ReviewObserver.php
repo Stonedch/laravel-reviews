@@ -10,9 +10,9 @@ class ReviewObserver
 {
     public function saving(Review $review)
     {
-        $review->users_id_foreign =
-           $review->users_id_foreign ?? Auth::id();
-        $review->statuses_id_foreign =
-            $review->statuses_id_foreign ?? Status::where('slug', '=', 'new')->firstOrFail()->id;
+        $review->user_id =
+           $review->user_id ?? Auth::id();
+        $review->status_id =
+            Status::where('slug', '=', 'new')->firstOrFail()->id;
     }
 }

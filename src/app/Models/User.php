@@ -39,7 +39,7 @@ class User extends Authenticatable
 
     public function role()
     {
-        return $this->belongsTo(Role::class, 'roles_id_foreign');
+        return $this->belongsTo(Role::class);
     }
 
     public function isAdmin()
@@ -49,11 +49,11 @@ class User extends Authenticatable
 
     public function products()
     {
-        return $this->hasMany(Product::class, 'users_id_foreign');
+        return $this->hasMany(Product::class);
     }
 
     public function reviews()
     {
-        return $this->hasMany(Review::class, 'users_id_foreign');
+        return $this->hasMany(Review::class);
     }
 }

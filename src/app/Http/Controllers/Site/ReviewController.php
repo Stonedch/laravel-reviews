@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Site;
 
+use App\Events\Review\ReviewStored;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ReviewRequest;
 use App\Models\Review;
@@ -16,6 +17,11 @@ class ReviewController extends Controller
         $review = new Review;
         $review->fill($request->validated());
         $review->save();
+
+        // TO-DO: take away
+        if (Auth::user()) {
+            event(new ReviewStored($review));
+        }
 
         return redirect()->route('site.product.show', $review->product->slug)
                          ->with('success', 'Review stored');

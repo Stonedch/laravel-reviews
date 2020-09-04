@@ -2,16 +2,13 @@
 
 @section('content')
 
-    <div class="card-header">
-        <h1> Products: </h1>
+    <div class="text-center mb-5">
+        <h1 class="h1 text-uppercase"> products </h3>
+        <h3 class="h3"> all our products </h3>
     </div>
 
-    <div class="card-body">
+    @include('site/product/includes/list')
 
-        @include('site/product/includes/list')
-
-        {{ $products->links() }}
-
-    </div>
+    @include('site/product/includes/links')
 
 @endsection

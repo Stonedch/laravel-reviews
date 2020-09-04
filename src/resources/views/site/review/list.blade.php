@@ -1,31 +1,25 @@
-<div class="mb-3">
-    @foreach ($reviews as $review)
+@foreach ($reviews as $review)
 
-        <div class="media text-muted ">
-            <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
-
+    <div class="media mt-4 px-1 text-md-left pl-3 border-left">
+        <div class="media-body">
+            <h5 class="font-weight-bold mt-0 mb-3">
                 @if ($review->user)
-                    <strong class="d-block text-gray-dark"> @ {{ $review->user->name }} </strong>
+                    <span> @ {{ $review->user->name }} </span>
                 @else
-                    <strong class="d-block text-gray-dark"> @ anonim </strong>
+                    <span> @ Anonim </span>
                 @endif
-
-                <span class="d-block"> <b> Score: </b> {{ $review->score }} </span>
-
-                @if ($review->name)
-                    <span class="d-block"> <b> Review name: </b> {{ $review->name }} </span>
-                @endif
-
-                @if ($review->positive)
-                    <span class="d-block"> <b> Positive: </b> {{ $review->positive }} </span>
-                @endif
-
-                @if ($review->negative)
-                    <span class="d-block"> <b> Negative: </b> {{ $review->negative }} </span>
-                @endif
-
-            </p>
+                <span class="grey-text"> {{ $review->score }}/10 </span>
+            </h5>
+            @if ($review->name)
+                <p> <i class="far fa-comment"></i> {{ $review->name }} </p>
+            @endif
+            @if ($review->positive)
+                <p> <i class="far fa-thumbs-up"></i> {{ $review->positive }} </p>
+            @endif
+            @if ($review->negative)
+                <p> <i class="far fa-thumbs-down"></i> {{ $review->negative }} </p>
+            @endif
         </div>
+    </div>
 
-    @endforeach
-</div>
+@endforeach

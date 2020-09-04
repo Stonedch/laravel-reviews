@@ -1,9 +1,9 @@
 [
     {
         "id": 1,
-        "products_id_foreign": 1,
-        "users_id_foreign": 2,
-        "statuses_id_foreign": 2,
+        "product_id": 1,
+        "user_id": 2,
+        "status_id": 2,
         "score": 10,
         "name": "First Test Review",
         "positive": "This is just first test review",
@@ -11,16 +11,16 @@
     },
     {
         "id": 2,
-        "products_id_foreign": 1,
-        "users_id_foreign": 2,
-        "statuses_id_foreign": 2,
+        "product_id": 1,
+        "user_id": 2,
+        "status_id": 2,
         "score": 10,
         "name": "Second Test Review"
     },
     {
         "id": 3,
-        "products_id_foreign": 1,
-        "statuses_id_foreign": 1,
+        "product_id": 1,
+        "status_id": 1,
         "score": 10
     }
 ]
