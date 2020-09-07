@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use Illuminate\Http\Request;
+use Log;
 
 class ProductController extends Controller
 {
@@ -32,11 +33,11 @@ class ProductController extends Controller
     public function store(ProductRequest $request)
     {
         $product = new Product;
-
         $product->fill($request->validated());
         $product->picture = storePictureOrNull($product->slug, $request->file('picture'));
-
         $product->save();
+
+        Log::debug('Product [id: '.$product->id.'] successfully stored');
 
         return redirect()->route('admin.product.show', $product->id)
                          ->with('success', 'Product added');
@@ -50,11 +51,11 @@ class ProductController extends Controller
 
     public function update($id, ProductRequest $request) {
         $product = Product::find($id);
-
         $product->fill($request->validated());
         $product->picture = storePictureOrNull($product->slug, $request->file('picture')) ?? $product->picture;
-
         $product->update();
+
+        Log::debug('Product [id: '.$product->id.'] successfully updated');
 
         return redirect()->route('admin.product.show', $product->id)
                          ->with('success', 'Product updated');
@@ -62,6 +63,9 @@ class ProductController extends Controller
 
     public function destroy($id) {
         Product::find($id)->delete();
+
+        Log::debug('Product [id: '.$id.'] successfully destroyed');
+
         return redirect()->route('admin.product.index')
                          ->with('success', 'Product destroyed');
     }

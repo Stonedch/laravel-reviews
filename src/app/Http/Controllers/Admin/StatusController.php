@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StatusRequest;
 use App\Models\Status;
 use Illuminate\Http\Request;
+use Log;
 
 class StatusController extends Controller
 {
@@ -34,6 +35,8 @@ class StatusController extends Controller
         $status->fill($request->validated());
         $status->save();
 
+        Log::debug('Status [id: '.$status->id.'] successfully stored');
+
         return redirect()->route('admin.status.show', $status->id)
                          ->with('success', 'Status stored');
     }
@@ -47,16 +50,20 @@ class StatusController extends Controller
 
     public function update($id, StatusRequest $request)
     {
-        $statuse = Status::find($id);
-        $statuse->update($request->validated());
+        $status = Status::find($id);
+        $status->update($request->validated());
 
-        return redirect()->route('admin.status.show', $statuse->id)
+        Log::debug('Status [id: '.$status->id.'] successfully updated');
+
+        return redirect()->route('admin.status.show', $status->id)
                          ->with('success', 'Status updated');
     }
 
     public function destroy($id)
     {
         Status::find($id)->delete();
+
+        Log::debug('Status [id: '.$id.'] successfully destroyed');
 
         return redirect()->route('admin.status.index')
                          ->with('success', 'Status destroyed');

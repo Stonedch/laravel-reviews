@@ -35,6 +35,8 @@ class RoleController extends Controller
         $role->fill($request->validated());
         $role->save();
 
+        Log::debug('Role [id: '.$role->id.'] successfully stored');
+
         return redirect()->route('admin.role.show', $role->id)
                          ->with('success', 'Role added');
     }
@@ -50,12 +52,17 @@ class RoleController extends Controller
         $role->fill($request->validated());
         $role->update();
 
+        Log::debug('Role [id: '.$role->id.'] successfully updated');
+
         return redirect()->route('admin.role.show', $role->id)
                          ->with('success', 'Role updated');
     }
 
     public function destroy($id) {
         Role::find($id)->delete();
+
+        Log::debug('Role [id: '.$id.'] successfully destroyed');
+
         return redirect()->route('admin.role.index')
                          ->with('success', 'Role destroyed');
     }

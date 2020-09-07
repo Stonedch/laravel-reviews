@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Review;
 use App\Models\Status;
 use Illuminate\Http\Request;
+use Log;
 
 class ReviewController extends Controller
 {
@@ -41,6 +42,8 @@ class ReviewController extends Controller
         $review->fill($request->validated());
         $review->save();
 
+        Log::debug('Review [id: '.$review->id.'] successfully stored');
+
         return redirect()->route('admin.review.show', $review->id)
                          ->with('success', 'Review stored');
     }
@@ -60,6 +63,8 @@ class ReviewController extends Controller
         $review = Review::find($id);
         $review->update($request->validated());
 
+        Log::debug('Review [id: '.$review->id.'] successfully updated');
+
         return redirect()->route('admin.review.show', $review->id)
                          ->with('success', 'Review updated');
     }
@@ -67,6 +72,8 @@ class ReviewController extends Controller
     public function destroy($id)
     {
         Review::find($id)->delete();
+
+        Log::debug('Review [id: '.$id.'] successfully destroyed');
 
         return redirect()->route('admin.review.index')
                          ->with('success', 'Review destroyed');
