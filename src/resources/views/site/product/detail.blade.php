@@ -16,6 +16,10 @@
                 <div class="col-lg-6">
                     <img class="img-fluid" src="{{ asset('storage/pictures/'.$product->picture) }}">
                 </div>
+            @else
+                <div class="col-lg-6">
+                    <img class="img-fluid" src="{{ asset('images/emptypicture.jpg') }}">
+                </div>
             @endif
 
             <div class="col-lg-6 text-center text-md-left">

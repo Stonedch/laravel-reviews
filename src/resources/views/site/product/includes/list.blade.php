@@ -15,6 +15,13 @@
                             <div class="mask rgba-white-slight waves-effect waves-light"></div>
                         </a>
                     </div>
+                @else
+                    <div class="view view-cascade overlay">
+                        <img class="card-img-top" src="{{ asset('images/emptypicture.jpg') }}">
+                        <a href="{{ route('site.product.show', $product->slug) }}">
+                            <div class="mask rgba-white-slight waves-effect waves-light"></div>
+                        </a>
+                    </div>
                 @endif
 
                 <!-- Card content -->
