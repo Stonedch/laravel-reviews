@@ -1,6 +1,6 @@
 <nav class="mb-3 navbar navbar-expand-lg navbar-dark black lighten-1">
 
-    <a class="navbar-brand" href="{{ route('site.index') }}"> {{ config('app.name', 'Site') }}. </a>
+    <a class="navbar-brand" href="{{ route('site.index') }}"> {{ trans('header.logo') }} </a>
 
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-3" aria-controls="navbarSupportedContent-3" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,7 +16,7 @@
             @else
                 <li class="nav-item">
             @endif
-                    <a class="nav-link waves-effect waves-light" href="{{ route('site.index') }}"> Home </a>
+                    <a class="nav-link waves-effect waves-light" href="{{ route('site.index') }}"> {{ trans('header.home') }} </a>
                 </li>
 
             @if (\Request::route()->getName() == 'site.product.index')
@@ -24,7 +24,7 @@
             @else
                 <li class="nav-item">
             @endif
-                    <a class="nav-link waves-effect waves-light" href="{{ route('site.product.index') }}"> Products </a>
+                    <a class="nav-link waves-effect waves-light" href="{{ route('site.product.index') }}"> {{ trans('header.products') }} </a>
                 </li>
 
         </ul>
@@ -36,15 +36,16 @@
                     <i class="fab fa-github"></i> Stonedch
                 </a>
             </li>
+
             @guest
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-user"></i> Profile
+                        <i class="fas fa-user"></i> {{ trans('auth.profile') }}
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-info text-center" aria-labelledby="navbarDropdownMenuLink-4">
-                        <a class="dropdown-item waves-effect waves-light" href="{{ route('login') }}"> Login </a>
+                        <a class="dropdown-item waves-effect waves-light" href="{{ route('login') }}"> {{ trans('auth.login') }} </a>
                         @if (Route::has('register'))
-                            <a class="dropdown-item waves-effect waves-light" href="{{ route('register') }}"> Register </a>
+                            <a class="dropdown-item waves-effect waves-light" href="{{ route('register') }}"> {{ trans('auth.register') }} </a>
                         @endif
                     </div>
                 </li>
@@ -52,7 +53,7 @@
                 @if (Auth::user()->isAdmin())
                     <li class="nav-item">
                         <a class="nav-link waves-effect waves-light" href="{{ route('admin.index') }}">
-                            <i class="fas fa-cogs"></i> Dashboard
+                            <i class="fas fa-cogs"></i> {{ trans('header.dashboard') }}
                         </a>
                     </li>
                 @endif
@@ -61,9 +62,7 @@
                         <i class="fas fa-user"></i> {{ Auth::user()->name }}
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-info text-center" aria-labelledby="navbarDropdownMenuLink-4">
-                        <a class="dropdown-item waves-effect waves-light" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            Logout
-                        </a>
+                        <a class="dropdown-item waves-effect waves-light" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ trans('auth.logout') }} </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="post" style="display: none;">
                             @csrf
                         </form>

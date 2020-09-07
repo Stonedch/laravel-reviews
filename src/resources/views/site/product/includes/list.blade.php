@@ -27,7 +27,7 @@
                         <p class="card-text"> {{ Str::words($product->description, 10) }} </p>
                     @endif
                     <!-- Button -->
-                    <a class="btn btn-black white-text waves-effect waves-light" href="{{ route('site.product.show', $product->slug) }}"> View </a>
+                    <a class="btn btn-black white-text waves-effect waves-light" href="{{ route('site.product.show', $product->slug) }}"> {{ trans('site.product.show') }} </a>
 
                 </div>
 

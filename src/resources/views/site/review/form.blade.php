@@ -1,5 +1,5 @@
 <!-- Leave a reply -->
-<div class="card-header border-0 font-weight-bold black white-text"> Write a review </div>
+<div class="card-header border-0 font-weight-bold black white-text"> {{ trans('site.review.write') }} </div>
 
 <!-- Reply form -->
 <form action="{{ route('site.review.store') }}" method="post">
@@ -16,7 +16,7 @@
                     <i class="far fa-comment"></i>
                 </span>
             </div>
-            <input type="text" class="form-control mt-0 pl-0 @error('name') is-invalid @enderror" placeholder="Review name" name="name" value="{{ old('name') }}" aria-describedby="basic-addon9">
+            <input type="text" class="form-control mt-0 pl-0 @error('name') is-invalid @enderror" placeholder="{{ trans('site.review.name') }}" name="name" value="{{ old('name') }}" aria-describedby="basic-addon9">
         </div>
 
         <div class="md-form input-group input-group-md px-2 mb-4">
@@ -25,7 +25,7 @@
                     <i class="far fa-heart"></i>
                 </span>
             </div>
-            <input type="number" min="1" max="10" class="form-control mt-0 pl-0 @error('score') is-invalid @enderror" placeholder="Score *" name="score" aria-describedby="basic-addon10">
+            <input type="number" min="1" max="10" class="form-control mt-0 pl-0 @error('score') is-invalid @enderror" placeholder="{{ trans('site.review.score') }}" name="score" aria-describedby="basic-addon10">
         </div>
 
     </div>
@@ -38,7 +38,7 @@
                     <i class="fas fa-pencil-alt"></i>
                 </span>
             </div>
-            <textarea class="form-control md-textarea pl-0 @error('positive') is-invalid @enderror" rows="2" placeholder="Write positive aspects here" name="positive" aria-describedby="with-textarea">{{ old('positive') }}</textarea>
+            <textarea class="form-control md-textarea pl-0 @error('positive') is-invalid @enderror" rows="2" placeholder="{{ trans('site.review.positive') }}" name="positive" aria-describedby="with-textarea">{{ old('positive') }}</textarea>
         </div>
 
         <div class="md-form input-group mt-0 px-2 mb-6">
@@ -47,13 +47,13 @@
                     <i class="fas fa-pencil-alt"></i>
                 </span>
             </div>
-            <textarea class="form-control md-textarea pl-0" rows="2" placeholder="Write negative aspects here" name="negative" aria-describedby="with-textarea">{{ old('negative') }}</textarea>
+            <textarea class="form-control md-textarea pl-0" rows="2" placeholder="{{ trans('site.review.negative') }}" name="negative" aria-describedby="with-textarea">{{ old('negative') }}</textarea>
         </div>
 
     </div>
 
     <div class="text-center mt-4">
-        <button type="submit" class="btn btn-default btn-black white-text btn-md waves-effect waves-light">Submit</button>
+        <button type="submit" class="btn btn-default btn-black white-text btn-md waves-effect waves-light"> {{ trans('site.review.submit') }} </button>
     </div>
 
 </form>

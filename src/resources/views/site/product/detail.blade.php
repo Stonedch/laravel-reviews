@@ -4,8 +4,8 @@
 
 
     <div class="text-center mb-5">
-        <h1 class="h1 text-uppercase"> product </h3>
-        <h3 class="h3"> details </h3>
+        <h1 class="h1 text-uppercase"> {{ trans('site.page.product.title') }} </h3>
+        <h3 class="h3 text-lowercase"> {{ trans('site.page.products.description') }} </h3>
     </div>
 
     <!--Section: Content-->
@@ -38,7 +38,7 @@
                         <div class="card-header black" role="tab" id="headingOne1">
                             <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="true" aria-controls="collapseOne1">
                                 <h5 class="mb-0 white-text">
-                                    Description
+                                    {{ trans('site.product.description') }}
                                     <i class="fas fa-angle-down rotate-icon"></i>
                                 </h5>
                             </a>
@@ -59,7 +59,7 @@
     <section class="my-5">
 
         <div class="text-center mb-3">
-            <h3 class="h3"> Reviews </h3>
+            <h3 class="h3"> {{ trans('site.review.reviews') }} </h3>
             <span class="grey-text">
                 <i class="far fa-comments pr-1"></i> {{ $product->reviews->count() }}
             </span>
