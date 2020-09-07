@@ -75,7 +75,7 @@ This application is a website with product reviews based on *Laravel 7.24*.
 8. Create storage symbolic link:
 
     ```console
-    foo@bar: laravel-reviews $ docker-compose exec php php artisan link:generate
+    foo@bar: laravel-reviews $ docker-compose exec php php artisan storage:link
     ```
 
 9. Install and run npm:
