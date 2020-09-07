@@ -4,8 +4,9 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::group(['prefix' => '/', 'as' => 'site.'], function() {
+Route::group(['prefix' => '/', 'as' => 'site.', 'middleware' => 'locale'], function() {
     Route::get('/', 'Site\IndexController@index')->name('index');
+    Route::get('/locale/{locale}', 'Site\LanguageController@setLocale')->name('locale');
     Route::group(['prefix' => '/product', 'as' => 'product.'], function() {
         Route::get('/all', 'Site\ProductController@index')->name('index');
         Route::get('/{slug}', 'Site\ProductController@show')->name('show');
@@ -15,7 +16,7 @@ Route::group(['prefix' => '/', 'as' => 'site.'], function() {
     });
 });
 
-Route::group(['prefix' => '/admin', 'as' => 'admin.', 'middleware' => 'admin'], function() {
+Route::group(['prefix' => '/admin', 'as' => 'admin.', 'middleware' => ['admin', 'locale']], function() {
 
     Route::get('/', 'Admin\AdminController@index')->name('index');
 

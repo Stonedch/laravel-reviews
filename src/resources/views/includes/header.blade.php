@@ -37,6 +37,16 @@
                 </a>
             </li>
 
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-language"></i> {{ Session::get('locale') }}
+                </a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-info text-center" aria-labelledby="navbarDropdownMenuLink-4">
+                    <a class="dropdown-item waves-effect waves-light" href="{{ route('site.locale', 'en') }}"> {{ trans('locale.lang.en') }} </a>
+                    <a class="dropdown-item waves-effect waves-light" href="{{ route('site.locale', 'ru') }}"> {{ trans('locale.lang.ru') }} </a>
+                </div>
+            </li>
+
             @guest
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

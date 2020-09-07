@@ -3,8 +3,8 @@
 return [
 
     'logo' => 'Reviews.',
-    'home' => 'Home',
-    'products' => 'Products',
+    'home' => 'Главная',
+    'products' => 'Продукты',
     'dashboard' => 'Dashboard',
 
 ];

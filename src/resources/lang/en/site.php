@@ -14,7 +14,6 @@ return [
         ],
         'product' => [
             'title' => 'Product',
-            'description' => 'details',
         ],
     ],
 
