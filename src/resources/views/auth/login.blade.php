@@ -18,7 +18,7 @@
 
                 <!--Header-->
                 <div class="text-center black-text">
-                    <h3> <i class="fas fa-lock"></i> Login: </h3>
+                    <h2 class='h2 '> Login  </h2>
                 </div>
 
                 <form method="POST" action="{{ route('login') }}">

@@ -7,7 +7,76 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+
+
 .md-form input:focus {
     box-shadow: 0 1px 0 0 black !important;
     border-bottom: 1px solid black !important;
+}
+.fa-envelope::before {
+    font-size: 21px;
+}
+.fa-lock::before{
+    font-size: 18px;
+}
+.fa-address-card::before{
+    font-size: 19px;
+}
+.form-control{
+    font-size: 1rem;
+    border: 1px solid #7f7f7f;
+    &:focus{
+        border: 1px solid #7f7f7f;
+    }
+    transition: none !important
+}
+
+.navbar-brand{
+    font-size: 1.325rem;
+}
+.table-dark{
+    background-color: #000;
+}
+
+table  th {
+    font-size: 1rem;
+}
+
+table.table a {
+    color: whitesmoke !important;
+    font-size: 15px;
+    &:hover{
+        color: white !important;
+    }
+}
+
+.table-dark th, .table-dark td, .table-dark thead th{
+border-color: whitesmoke !important;
+}
+
+.list-group-item{
+    // background-color: #000 !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // color: whitesmoke !important;
+    transition: all .5s ease-in;
+    &:hover{
+        cursor: pointer;
+        background-color: rgb(243, 243, 243) !important;
+    }
+}
+
+.badge-primary{
+    color: #000 !important;
+    background-color: #fff !important;
+}
+.input-group-text{
+    background-color: #474747 !important;
+    border: 1px solid #7f7f7f;
+    color: white;
+}
+
+.text-danger{
+    color: #a14c49 !important;
 }
