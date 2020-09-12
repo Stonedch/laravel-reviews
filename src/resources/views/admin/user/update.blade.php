@@ -14,20 +14,19 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text"> Name </span>
                 </div>
-                <input type="text" name="name" class="form-control" value="{{ $user->name }}">
+                <input type="text" name="name" class="form-control shadow-none" value="{{ $user->name }}">
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> E-mail </span>
                 </div>
-                <input type="email" name="email" class="form-control" value="{{ $user->email }}">
+                <input type="email" name="email" class="form-control shadow-none" value="{{ $user->email }}">
             </div>
-            <div class="btn-group mt-1" role="group" aria-label="Basic example">
-                <a class="btn btn-primary" href="{{ route('admin.user.show', $user->id) }}"> Back </a>
-                <button class="btn btn-success" type="submit"> Update </button>
+            <div class="btn-toolbar mt-1 justify-content-center" role="toolbar" aria-label="Basic example">
+                <a class="btn btn-dark" href="{{ route('admin.user.show', $user->id) }}"> Back </a>
+                <button class="btn btn-dark" type="submit"> Update </button>
             </div>
         </form>
-
     </div>
 
 @endsection

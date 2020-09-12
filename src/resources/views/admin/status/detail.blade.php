@@ -30,10 +30,10 @@
             </li>
         </ul>
 
-        <div class="btn-group mt-1" role="group" aria-label="Basic example">
-            <a class="btn btn-primary" href="{{ route('admin.status.index') }}"> Back </a>
-            <a class="btn btn-success" href="{{ route('admin.status.edit', $status->id) }}"> Edit </a>
-            <a class="btn btn-danger" href="{{ route('admin.status.destroy', $status->id) }}"> Destroy </a>
+        <div class="btn-toolbar mt-1 justify-content-center" role="toolbar" aria-label="Basic example">
+            <a class="btn btn-dark" href="{{ route('admin.status.index') }}"> Back </a>
+            <a class="btn btn-dark" href="{{ route('admin.status.edit', $status->id) }}"> Edit </a>
+            <a class="btn btn-dark" href="{{ route('admin.status.destroy', $status->id) }}"> Destroy </a>
         </div>
 
     </div>

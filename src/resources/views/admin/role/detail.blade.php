@@ -23,10 +23,10 @@
             </li>
         </ul>
 
-        <div class="btn-group mt-1" role="group" aria-label="Basic example">
-            <a class="btn btn-primary" href="{{ route('admin.role.index') }}"> Back </a>
-            <a class="btn btn-success" href="{{ route('admin.role.edit', $role->id) }}"> Edit </a>
-            <a class="btn btn-danger" href="{{ route('admin.role.destroy', $role->id) }}"> Destroy </a>
+        <div class="btn-toolbar mt-1 justify-content-center" role="toolbar" aria-label="Basic example">
+            <a class="btn btn-dark" href="{{ route('admin.role.index') }}"> Back </a>
+            <a class="btn btn-dark" href="{{ route('admin.role.edit', $role->id) }}"> Edit </a>
+            <a class="btn btn-dark" href="{{ route('admin.role.destroy', $role->id) }}"> Destroy </a>
         </div>
 
     </div>

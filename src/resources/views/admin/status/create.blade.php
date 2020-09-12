@@ -37,9 +37,9 @@
                 <input type="text" name="color_fg" class="form-control">
             </div>
 
-            <div class="btn-group mt-1" role="group" aria-label="Basic example">
-                <a class="btn btn-primary" href="{{ route('admin.status.index') }}"> Back </a>
-                <button class="btn btn-success" type="submit"> Store </button>
+            <div class="btn-toolbar mt-1 justify-content-center" role="toolbar" aria-label="Basic example">
+                <a class="btn btn-dark" href="{{ route('admin.status.index') }}"> Back </a>
+                <button class="btn btn-dark" type="submit"> Store </button>
             </div>
 
         </form>
