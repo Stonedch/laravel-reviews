@@ -10936,7 +10936,7 @@ a.text-dark:focus {
 }
 
 .table-dark {
-  background-color: #000;
+  background-color: #fff;
 }
 
 table th {
@@ -10959,9 +10959,11 @@ table.table a:hover {
 }
 
 .list-group-item {
+  background-color: #fff !important;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: #000 !important;
   transition: all 0.5s ease-in;
 }
 
@@ -10983,5 +10985,19 @@ table.table a:hover {
 
 .text-danger {
   color: #a14c49 !important;
+}
+
+.table-dark th,
+.table-dark td,
+.table-dark thead th {
+  color: #000000;
+  border-color: #e4e4e4 !important;
+  background-color: #fff;
+}
+
+.fa-info::before,
+.fa-edit:before,
+.fa-trash:before {
+  color: #000;
 }
 

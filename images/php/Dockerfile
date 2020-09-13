@@ -10,6 +10,11 @@ RUN apt-get update \
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+# RUN curl -sL https://deb.nodesource.com/setup_12.x -o nodesource_setup.sh
+# RUN bash nodesource_setup.sh
+# RUN apt-get install nodejs -y
+# RUN npm install npm@latest -g
+
 ADD php.ini /usr/local/etc/php/conf.d/40-custom.ini
 
 WORKDIR /var/www/html
@@ -19,4 +24,4 @@ RUN groupadd -g $GID $UNAME \
 
 USER $UNAME
 
-CMD ["php-fpm"]
+CMD ["php-fpm"] 
