@@ -35,7 +35,7 @@
     font-size: 1.325rem;
 }
 .table-dark{
-    background-color: #000;
+    background-color: #fff;
 }
 
 table  th {
@@ -55,11 +55,11 @@ border-color: whitesmoke !important;
 }
 
 .list-group-item{
-    // background-color: #000 !important;
+    background-color: #fff !important;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    // color: whitesmoke !important;
+    color: #000 !important;
     transition: all .5s ease-in;
     &:hover{
         cursor: pointer;
@@ -79,4 +79,14 @@ border-color: whitesmoke !important;
 
 .text-danger{
     color: #a14c49 !important;
+}
+
+.table-dark th, .table-dark td, .table-dark thead th{
+    color: #000000;
+    border-color: #e4e4e4 !important;
+    background-color: #fff;
+}
+
+.fa-info::before, .fa-edit:before, .fa-trash:before{
+    color: #000;
 }
